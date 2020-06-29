@@ -1,13 +1,12 @@
 import React from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilState } from 'recoil'
 
 //State
-import { environmentAtom, routeAtom, componentsAtom } from '../context/GlobalState'
+import { routeAtom, componentsAtom } from '../context/GlobalState'
 
 const Settings = () => {
 
     //State Management
-    const environment = useRecoilValue(environmentAtom);
     const [route, setRoute] = useRecoilState(routeAtom);
     const [components, setComponents] = useRecoilState(componentsAtom);
 

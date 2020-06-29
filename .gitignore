@@ -16,6 +16,9 @@ index.css.map
 /build
 .env
 
+#Testing
+test
+
 # misc
 .DS_Store
 .env.local
