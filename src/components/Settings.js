@@ -30,6 +30,7 @@ const Settings = () => {
 
     const addEmptyComponent = () => {
         setComponents([...components, {
+            id: components.length,
             name: "Name",
             type: "FunctionalArrow",
             page: false,
@@ -37,47 +38,63 @@ const Settings = () => {
     }
 
     const handleNameChange = (e, id) => {
-        let tempArray = [...components];
-        tempArray.forEach(comp => {
-            if (comp.id === id) {
-                comp.name = e.target.value;
-            }
-        });
-        console.log(tempArray)
-        setComponents([
-            {
-                id: 0,
-                name: "Homerrr",
-                type: "FunctionalArrow",
-                page: true
-            },
-            {
-                id: 1,
-                name: "NavBar",
-                type: "FunctionalArrow",
-                page: true
-            }
-        ])
+        setComponents(prevState => {
+            let tempArray = [];
+            prevState.forEach(comp => {
+                if (comp.id === id) {
+                    tempArray.push({
+                        id: comp.id,
+                        type: comp.type,
+                        page: comp.page,
+                        name: e.target.value
+                    });
+                } else {
+
+                    tempArray.push(comp)
+                }
+            })
+            return tempArray
+        })
     }
-    
+
     const handleTypeChange = (e, id) => {
-        let tempArray = [...components];
-        tempArray.forEach(comp => {
-            if (comp.id === id) {
-                comp.type = e.target.value;
-            }
-        });
-        setComponents([...tempArray])
+        setComponents(prevState => {
+            let tempArray = [];
+            prevState.forEach(comp => {
+                if (comp.id === id) {
+                    tempArray.push({
+                        id: comp.id,
+                        type: comp.type,
+                        page: e.target.value,
+                        name: comp.name
+                    });
+                } else {
+
+                    tempArray.push(comp)
+                }
+            })
+            return tempArray
+        })
     }
-    
+
     const handlePageChange = (id) => {
-        let tempArray = [...components];
-        tempArray.forEach(comp => {
-            if (comp.id === id) {
-                comp.page = !comp.page;
-            }
-        });
-        setComponents([...tempArray])
+        setComponents(prevState => {
+            let tempArray = [];
+            prevState.forEach(comp => {
+                if (comp.id === id) {
+                    tempArray.push({
+                        id: comp.id,
+                        type: comp.type,
+                        page: !comp.page,
+                        name: comp.name
+                    });
+                } else {
+
+                    tempArray.push(comp)
+                }
+            })
+            return tempArray
+        })
     }
 
     return (
