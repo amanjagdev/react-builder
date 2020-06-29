@@ -43,9 +43,39 @@ const Settings = () => {
     const addEmptyComponent = () => {
         setComponents([...components, {
             name: "Name",
-            Types: "FunctionalArrow",
+            type: "FunctionalArrow",
             page: false,
         }])
+    }
+
+    const handleNameChange = (e, id) => {
+        let tempArray = components;
+        tempArray.forEach(comp => {
+            if (comp.id === id) {
+                comp.name = e.target.value;
+            }
+        });
+        setComponents([...tempArray])
+    }
+
+    const handleTypeChange = (e, id) => {
+        let tempArray = components;
+        tempArray.forEach(comp => {
+            if (comp.id === id) {
+                comp.type = e.target.value;
+            }
+        });
+        setComponents([...tempArray])
+    }
+
+    const handlePageChange = (id) => {
+        let tempArray = components;
+        tempArray.forEach(comp => {
+            if (comp.id === id) {
+                comp.page = !comp.page;
+            }
+        });
+        setComponents([...tempArray])
     }
 
     return (
@@ -64,7 +94,7 @@ const Settings = () => {
                 <input type="checkbox" onChange={() => handleCheckBox()} defaultChecked={route.enabled} />
                 <select value={route.navigation} onChange={(e) => handleRouteChange(e)} name="route">
                     {
-                        components.map(({ name }) => <option value={name}>{name}</option>)
+                        components.map(({ name, id }) => <option key={id} value={name}>{name}</option>)
                     }
                 </select>
             </div>
@@ -74,12 +104,17 @@ const Settings = () => {
                 <button onClick={() => addEmptyComponent()}>Add Comp</button>
                 <div className="all-comps">
                     {
-                        components.map(({ index, name, type, page }) =>
-                            <React.Fragment>
+                        components.map(({ id, name, type, page }) =>
+                            <React.Fragment key={id}>
                                 <div className="input-comp">
-                                    <input type="text" value={name} />
-                                    <input type="text" value={type} />
-                                    <input type="checkbox" defaultChecked={page} />
+                                    <input type="text" onChange={(e) => handleNameChange(e, id)} value={name} />
+                                    <select onChange={(e) => handleTypeChange(e, id)} value={type} >
+                                        <option value="FunctionalArrow">FunctionalArrow</option>
+                                        <option value="Functional">Functional</option>
+                                        <option value="ClassStateFul">ClassStateFul</option>
+                                        <option value="ClassStateLess">ClassStateLess</option>
+                                    </select>
+                                    <input type="checkbox" onChange={() => handlePageChange(id)} defaultChecked={page} />
                                 </div>
                             </React.Fragment>
                         )
