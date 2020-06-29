@@ -1,27 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil'
+
+//State
+import { environmentAtom, routeAtom, componentsAtom } from '../context/GlobalState'
 
 const Settings = () => {
 
     //State Management
-    const [environment, setEnvironment] = useState("create-react-app");
-    const [route, setRoute] = useState({
-        enabled: false,
-        navigation: "Home"
-    });
-    const [components, setComponents] = useState([
-        {
-            id: 0,
-            name: "Home",
-            type: "FunctionalArrow",
-            page: true
-        },
-        {
-            id: 1,
-            name: "NavBar",
-            type: "FunctionalArrow",
-            page: true
-        }
-    ]);
+    const environment = useRecoilValue(environmentAtom);
+    const [route, setRoute] = useRecoilState(routeAtom);
+    const [components, setComponents] = useRecoilState(componentsAtom);
 
     const handleRouteChange = e => {
         e.preventDefault();
@@ -49,17 +37,31 @@ const Settings = () => {
     }
 
     const handleNameChange = (e, id) => {
-        let tempArray = components;
+        let tempArray = [...components];
         tempArray.forEach(comp => {
             if (comp.id === id) {
                 comp.name = e.target.value;
             }
         });
-        setComponents([...tempArray])
+        console.log(tempArray)
+        setComponents([
+            {
+                id: 0,
+                name: "Homerrr",
+                type: "FunctionalArrow",
+                page: true
+            },
+            {
+                id: 1,
+                name: "NavBar",
+                type: "FunctionalArrow",
+                page: true
+            }
+        ])
     }
-
+    
     const handleTypeChange = (e, id) => {
-        let tempArray = components;
+        let tempArray = [...components];
         tempArray.forEach(comp => {
             if (comp.id === id) {
                 comp.type = e.target.value;
@@ -67,9 +69,9 @@ const Settings = () => {
         });
         setComponents([...tempArray])
     }
-
+    
     const handlePageChange = (id) => {
-        let tempArray = components;
+        let tempArray = [...components];
         tempArray.forEach(comp => {
             if (comp.id === id) {
                 comp.page = !comp.page;

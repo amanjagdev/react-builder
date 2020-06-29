@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { RecoilRoot } from 'recoil'
 
 //Compoenents
 import Header from './components/Header'
@@ -8,11 +9,13 @@ import Home from './components/Home'
 const App = () => {
   return (
     <div className="App">
+      <RecoilRoot>
 
-      <Header />
-      <Home />
-      <Footer />
+        <Header />
+        <Home />
+        <Footer />
 
+      </RecoilRoot>
     </div>
   )
 }
