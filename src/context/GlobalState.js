@@ -5,6 +5,11 @@ export const environmentAtom = atom({
     default: "create-react-app"
 });
 
+export const projectNameAtom = atom({
+    key: "projectNameAtom",
+    default: "my-app"
+});
+
 export const routeAtom = atom({
     key: "routeAtom",
     default: {
