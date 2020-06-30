@@ -2,13 +2,14 @@ const downloadTxtFile = (MainFile) => {
     const element = document.createElement("a");
     const file = new Blob([MainFile], { type: 'text/plain' });
     element.href = URL.createObjectURL(file);
-    element.download = "makeFolders.js";
+    element.download = "createMyApp.js";
     document.body.appendChild(element); // Required for this to work in FireFox
     element.click();
 }
 
-const createAppHelper = ({ environment, route, components }) => {
-    let MainFile = "const fs = require('fs');fs.mkdirSync('components');fs.mkdirSync('pages');";
+const createAppHelper = ({ environment, route, components, projectName }) => {
+    let MainFile = "const fs = require('fs');const {exec} = require('child_process');exec('npx create-react-app " + projectName + "', (error, stdout, stderr) => {if (error) {console.error(`exec error: ${error}`);return;}console.log(`${stdout}`);console.error(` ${stderr}`);fs.mkdirSync('" + projectName + "/src/components');fs.mkdirSync('" + projectName + "/src/pages');";
+
 
     let componentsToWrite = [];
     let pagesToWrite = [];
@@ -30,11 +31,12 @@ const createAppHelper = ({ environment, route, components }) => {
     });
 
     componentsToWrite.forEach(({ name, data }) => {
-        MainFile += `fs.writeFileSync("components/${name}.js", "${data}");`
+        MainFile += `fs.writeFileSync("${projectName}/src/components/${name}.js", "${data}");`
     });
     pagesToWrite.forEach(({ name, data }) => {
-        MainFile += `fs.writeFileSync("pages/${name}.js", "${data}");`
+        MainFile += `fs.writeFileSync("${projectName}/src/pages/${name}.js", "${data}");`
     });
+    MainFile += "});"
     console.log(MainFile)
     downloadTxtFile(MainFile)
 };

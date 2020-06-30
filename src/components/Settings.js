@@ -2,12 +2,13 @@ import React from 'react';
 import { useRecoilState } from 'recoil'
 
 //State
-import { routeAtom, componentsAtom } from '../context/GlobalState'
+import { routeAtom, componentsAtom, projectNameAtom } from '../context/GlobalState'
 
 const Settings = () => {
 
     //State Management
     const [route, setRoute] = useRecoilState(routeAtom);
+    const [porjectName, setProjetctName] = useRecoilState(projectNameAtom);
     const [components, setComponents] = useRecoilState(componentsAtom);
 
     const handleRouteChange = e => {
@@ -105,6 +106,12 @@ const Settings = () => {
                     <option value="create-react-app">Create React App</option>
                     <option disabled value="comming-soon">More comming soon</option>
                 </select>
+            </div>
+
+            <div className="env">
+                <h4 className="head">Project Name</h4>
+                <p>All small without spaces</p>
+                <input type="text" value={porjectName} onChange={(e) => setProjetctName(e.target.value)} />
             </div>
 
             <div className="route">
