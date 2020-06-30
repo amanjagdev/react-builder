@@ -20,13 +20,13 @@ export const componentsAtom = atom({
             id: 0,
             name: "Home",
             type: "FunctionalArrow",
-            page: true
+            page: true  
         },
         {
             id: 1,
             name: "NavBar",
             type: "FunctionalArrow",
-            page: true
+            page: false
         }
     ]
 });
