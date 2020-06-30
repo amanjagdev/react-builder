@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useRecoilValue } from 'recoil'
 
 //Helper Function
@@ -14,11 +14,24 @@ const InfoPane = () => {
     const components = useRecoilValue(componentsAtom);
     const projectName = useRecoilValue(projectNameAtom);
 
+    const [script,setScript] = useState(null);
+
+    const handleCreateApp = () => {
+        createAppHelper({ environment, route, components, projectName });
+        setScript(`yarn create react-app ${projectName} && node createMyApp.js`);
+    }
+
     return (
         <div className="InfoPane">
             <p>Choose your prefrences here and get your desired react app within seconds</p>
             <p>This is the usual Structure of the application we will be creating for you.</p>
-            <button onClick={() => createAppHelper({ environment, route, components, projectName })}> Create App</button>
+            <button onClick={() => handleCreateApp()}> Create App</button>
+            <div className="script">
+                {
+                    script &&
+                    <code>{script}</code>
+                }
+            </div>
         </div>
     )
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { useRecoilState } from 'recoil'
 
 //State
-import { routeAtom, componentsAtom, projectNameAtom } from '../context/GlobalState'
+import { routeAtom, componentsAtom, projectNameAtom, buildToolAtom } from '../context/GlobalState'
 
 const Settings = () => {
 
@@ -10,6 +10,7 @@ const Settings = () => {
     const [route, setRoute] = useRecoilState(routeAtom);
     const [porjectName, setProjetctName] = useRecoilState(projectNameAtom);
     const [components, setComponents] = useRecoilState(componentsAtom);
+    const [buildTool, setBuildTool] = useRecoilState(buildToolAtom);
 
     const handleRouteChange = e => {
         e.preventDefault();
@@ -108,7 +109,15 @@ const Settings = () => {
                 </select>
             </div>
 
-            <div className="env">
+            <div className="buildtool">
+                <h4 className="head">Build Tool</h4>
+                <select name="buildtool" value={buildTool} onChange={(e) => setBuildTool(e.target.value)} >
+                    <option value="yarn">yarn</option>
+                    <option value="npx">npx</option>
+                </select>
+            </div>
+
+            <div className="projectname">
                 <h4 className="head">Project Name</h4>
                 <p>All small without spaces</p>
                 <input type="text" value={porjectName} onChange={(e) => setProjetctName(e.target.value)} />

@@ -5,6 +5,11 @@ export const environmentAtom = atom({
     default: "create-react-app"
 });
 
+export const buildToolAtom = atom({
+    key: "buildToolAtom",
+    default: "yarn"
+});
+
 export const projectNameAtom = atom({
     key: "projectNameAtom",
     default: "my-app"

@@ -3,13 +3,12 @@ const downloadTxtFile = (MainFile) => {
     const file = new Blob([MainFile], { type: 'text/plain' });
     element.href = URL.createObjectURL(file);
     element.download = "createMyApp.js";
-    document.body.appendChild(element); // Required for this to work in FireFox
+    document.body.appendChild(element);
     element.click();
 }
 
 const createAppHelper = ({ environment, route, components, projectName }) => {
-    let MainFile = "const fs = require('fs');const {exec} = require('child_process');exec('npx create-react-app " + projectName + "', (error, stdout, stderr) => {if (error) {console.error(`exec error: ${error}`);return;}console.log(`${stdout}`);console.error(` ${stderr}`);fs.mkdirSync('" + projectName + "/src/components');fs.mkdirSync('" + projectName + "/src/pages');";
-
+    let MainFile = "const fs = require('fs');fs.mkdirSync('" + projectName + "/src/components');fs.mkdirSync('" + projectName + "/src/pages');";
 
     let componentsToWrite = [];
     let pagesToWrite = [];
@@ -36,7 +35,6 @@ const createAppHelper = ({ environment, route, components, projectName }) => {
     pagesToWrite.forEach(({ name, data }) => {
         MainFile += `fs.writeFileSync("${projectName}/src/pages/${name}.js", "${data}");`
     });
-    MainFile += "});"
     console.log(MainFile)
     downloadTxtFile(MainFile)
 };
