@@ -76,6 +76,37 @@ const createAppHelper = ({ environment, route, components, projectName }) => {
         MainFile += `fs.writeFileSync("${projectName}/src/pages/${name}.js", "${data}");`
     });
 
+    //Adding Routes to App.js
+    let AppJsContent = `import React from 'react';\\nimport './App.css';\\n\\n`;
+    if(route.enabled){
+        AppJsContent += "import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';\\n\\n"
+    }
+    components.forEach(comp => {
+        if (comp.page) {
+            AppJsContent += `import ${comp.name} from './pages/${comp.name}';\\n`
+        }
+    })
+    AppJsContent += `\\nconst App = () => {\\n    return (\\n        <div>\\n`
+    if (!route.enabled) {
+        components.forEach(comp => {
+            if (comp.page) {
+                AppJsContent += `            <${comp.name} />\\n`
+            }
+        })
+    }else{
+        AppJsContent += `            <Router>\\n                <Switch>\\n`;
+        components.forEach(comp => {
+            if(comp.page){
+                AppJsContent+= `                    <Route path='/${comp.name}' exact component={${comp.name}} />\\n`
+            }
+        })
+        AppJsContent += `                </Switch>\\n            </Router>\\n`;
+    }
+    AppJsContent += `        </div>\\n    )\\n}\\n\\nexport default App`;
+
+    //Adding App.js write to mainFile
+    MainFile += `fs.writeFileSync("${projectName}/src/App.js", "${AppJsContent}");`
+
     console.log(MainFile)
     //TODO: Add this function when doing production
     // downloadNodeFile(MainFile)
