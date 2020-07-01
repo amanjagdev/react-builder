@@ -1,4 +1,4 @@
-const downloadTxtFile = (MainFile) => {
+const downloadNodeFile = (MainFile) => {
     const element = document.createElement("a");
     const file = new Blob([MainFile], { type: 'text/plain' });
     element.href = URL.createObjectURL(file);
@@ -16,16 +16,22 @@ const createAppHelper = ({ environment, route, components, projectName }) => {
     components.forEach((comp) => {
         if (!comp.page) {
             //Functional Arrow Component
-            componentsToWrite.push({
-                name: comp.name,
-                data: `import React from 'react';\\n\\nconst ${comp.name} = () => {\\n  return (\\n    <div>\\n      ${comp.name} Component\\n    </div>\\n  )\\n}\\n\\nexport default ${comp.name};`
-            })
+            if (comp.type === "FunctionalArrow") {
+                componentsToWrite.push({
+                    name: comp.name,
+                    data: `import React from 'react';\\n\\nconst ${comp.name} = () => {\\n  return (\\n    <div>\\n      ${comp.name} Component\\n    </div>\\n  )\\n}\\n\\nexport default ${comp.name};`
+                })
+            }else if(comp.type === "Functional"){
+
+            }
         } else {
-            //Functional Arrow Page
-            pagesToWrite.push({
-                name: comp.name,
-                data: `import React from 'react';\\n\\nconst ${comp.name} = () => {\\n  return (\\n    <div>\\n      ${comp.name} Component\\n    </div>\\n  )\\n}\\n\\nexport default ${comp.name};`
-            })
+            if (comp.type === "FunctionalArrow") {
+                //Functional Arrow Page
+                pagesToWrite.push({
+                    name: comp.name,
+                    data: `import React from 'react';\\n\\nconst ${comp.name} = () => {\\n  return (\\n    <div>\\n      ${comp.name} Component\\n    </div>\\n  )\\n}\\n\\nexport default ${comp.name};`
+                })
+            }
         }
     });
 
@@ -35,8 +41,10 @@ const createAppHelper = ({ environment, route, components, projectName }) => {
     pagesToWrite.forEach(({ name, data }) => {
         MainFile += `fs.writeFileSync("${projectName}/src/pages/${name}.js", "${data}");`
     });
+
     console.log(MainFile)
-    downloadTxtFile(MainFile)
+    //TODO: Add this function when doing production
+    // downloadNodeFile(MainFile)
 };
 
 export default createAppHelper;

@@ -65,8 +65,8 @@ const Settings = () => {
                 if (comp.id === id) {
                     tempArray.push({
                         id: comp.id,
-                        type: comp.type,
-                        page: e.target.value,
+                        type: e.target.value,
+                        page: comp.page,
                         name: comp.name
                     });
                 } else {

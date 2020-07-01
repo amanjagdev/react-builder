@@ -1,5 +1,8 @@
 import React from 'react';
-import { RecoilRoot } from 'recoil'
+import { RecoilRoot } from 'recoil';
+
+//dev
+import RecoilLogger from 'recoil-logger'
 
 //Compoenents
 import Header from './components/Header'
@@ -10,7 +13,7 @@ const App = () => {
   return (
     <div className="App">
       <RecoilRoot>
-
+        <RecoilLogger />
         <Header />
         <Home />
         <Footer />
