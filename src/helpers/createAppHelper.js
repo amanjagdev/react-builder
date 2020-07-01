@@ -134,8 +134,8 @@ const createAppHelper = ({ environment, route, components, projectName }) => {
 
         //Checking for navigationComponentType
         if (navComponent.type === "FunctionalArrow" || navComponent.type === "Functional") {
-            NavigationFile += `        </div>\\n    )\\n}\\n\\nexport default ${route.navigation}`;
-        } else if (navComponent.type === ("ClassStateLess" ||navComponent.type === "ClassStateFul")) {
+            NavigationFile += `        </div>\\n    )\\n}\\n\\nexport default ${route.navigation};`;
+        } else if (navComponent.type === "ClassStateLess" || navComponent.type === "ClassStateFul") {
             NavigationFile += `        </div>\\n    );\\n  }\\n}`;
         }
 
