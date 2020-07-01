@@ -78,7 +78,7 @@ const createAppHelper = ({ environment, route, components, projectName }) => {
 
     //Adding Routes to App.js
     let AppJsContent = `import React from 'react';\\nimport './App.css';\\n\\n`;
-    if(route.enabled){
+    if (route.enabled) {
         AppJsContent += "import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';\\n\\n"
     }
     components.forEach(comp => {
@@ -93,11 +93,11 @@ const createAppHelper = ({ environment, route, components, projectName }) => {
                 AppJsContent += `            <${comp.name} />\\n`
             }
         })
-    }else{
+    } else {
         AppJsContent += `            <Router>\\n                <Switch>\\n`;
         components.forEach(comp => {
-            if(comp.page){
-                AppJsContent+= `                    <Route path='/${comp.name}' exact component={${comp.name}} />\\n`
+            if (comp.page) {
+                AppJsContent += `                    <Route path='/${comp.name}' exact component={${comp.name}} />\\n`
             }
         })
         AppJsContent += `                </Switch>\\n            </Router>\\n`;
@@ -106,6 +106,45 @@ const createAppHelper = ({ environment, route, components, projectName }) => {
 
     //Adding App.js write to mainFile
     MainFile += `fs.writeFileSync("${projectName}/src/App.js", "${AppJsContent}");`
+
+
+    //Writting Navigation File
+    if (route.enabled) {
+        let NavigationFile = '';
+        const navComponent = components.find(comp => comp.name === route.navigation);
+        console.log(navComponent);
+
+        //Checking for navigationComponentType
+        if (navComponent.type === "FunctionalArrow") {
+            NavigationFile += `import React from 'react';\\nimport { Link } from 'react-roter-dom';\\n\\nconst ${route.navigation} = () => {\\n    return (\\n        <div>\\n`;
+        } else if (navComponent.type === "ClassStateLess") {
+            NavigationFile += `\\nimport React from 'react';\\nimport { Link } from 'react-roter-dom';\\n\\nexport default class ${route.navigation} extends React.Component {\\n\\n  render() {\\n    return (\\n      <div>\\n`;
+        } else if (navComponent.type === "ClassStateFul") {
+            NavigationFile += `import React from 'react';\\nimport { Link } from 'react-roter-dom';\\n\\nexport default class Namefsf extends React.Component {\\n  constructor(props) {\\n    super(props);\\n    this.state = {};\\n  }\\n\\n  render() {\\n    return (\\n      <div>\\n`
+        } else {
+            NavigationFile += `import React from 'react';\\nimport { Link } from 'react-roter-dom';\\n\\nfunction ${route.navigation} (){\\n    return (\\n        <div>\\n`;
+        }
+
+        //common route insertion
+        components.forEach(comp => {
+            if (comp.page) {
+                NavigationFile += `            <Link to='/${comp.name}' >${comp.name}</Link>\\n`;
+            }
+        })
+
+        //Checking for navigationComponentType
+        if (navComponent.type === "FunctionalArrow" || navComponent.type === "Functional") {
+            NavigationFile += `        </div>\\n    )\\n}\\n\\nexport default ${route.navigation}`;
+        } else if (navComponent.type === ("ClassStateLess" ||navComponent.type === "ClassStateFul")) {
+            NavigationFile += `        </div>\\n    );\\n  }\\n}`;
+        }
+
+        //Adding Navigation file into MainFile
+        MainFile += `fs.writeFileSync("${projectName}/src/components/${route.navigation}.js", "${NavigationFile}");`
+    }
+
+
+
 
     console.log(MainFile)
     //TODO: Add this function when doing production
