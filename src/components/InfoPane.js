@@ -5,7 +5,7 @@ import { useRecoilValue } from 'recoil'
 import createAppHelper from '../helpers/createAppHelper';
 
 //State
-import { environmentAtom, routeAtom, componentsAtom, projectNameAtom, buildToolAtom } from '../context/GlobalState'
+import { environmentAtom, routeAtom, componentsAtom, projectNameAtom, buildToolAtom, dependenciesToAddAtom } from '../context/GlobalState'
 
 const InfoPane = () => {
     //State Management
@@ -14,15 +14,16 @@ const InfoPane = () => {
     const components = useRecoilValue(componentsAtom);
     const projectName = useRecoilValue(projectNameAtom);
     const buildTool = useRecoilValue(buildToolAtom);
+    const dependencies = useRecoilValue(dependenciesToAddAtom);
 
     const [script,setScript] = useState(null);
 
     const handleCreateApp = () => {
         createAppHelper({ environment, route, components, projectName });
         if(buildTool === "yarn"){
-            setScript(`yarn create react-app ${projectName} && node createMyApp.js`);
+            setScript(`yarn create react-app ${projectName} && yarn add ${dependencies} && node createMyApp.js`);
         }else{
-            setScript(`npx create-react-app ${projectName} && node createMyApp.js`);
+            setScript(`npx create-react-app ${projectName} && npm install ${dependencies} && node createMyApp.js`);
         }
     }
 

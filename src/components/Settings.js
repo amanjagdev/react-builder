@@ -2,7 +2,7 @@ import React from 'react';
 import { useRecoilState } from 'recoil'
 
 //State
-import { routeAtom, componentsAtom, projectNameAtom, buildToolAtom } from '../context/GlobalState'
+import { routeAtom, componentsAtom, projectNameAtom, buildToolAtom, dependenciesToAddAtom } from '../context/GlobalState'
 
 const Settings = () => {
 
@@ -11,6 +11,7 @@ const Settings = () => {
     const [porjectName, setProjetctName] = useRecoilState(projectNameAtom);
     const [components, setComponents] = useRecoilState(componentsAtom);
     const [buildTool, setBuildTool] = useRecoilState(buildToolAtom);
+    const [dependencies, setDependencies] = useRecoilState(dependenciesToAddAtom);
 
     const handleRouteChange = e => {
         e.preventDefault();
@@ -121,6 +122,12 @@ const Settings = () => {
                 <h4 className="head">Project Name</h4>
                 <p>All small without spaces</p>
                 <input type="text" value={porjectName} onChange={(e) => setProjetctName(e.target.value)} />
+            </div>
+            
+            <div className="dependencies">
+                <h4 className="head">Dependencies to be added</h4>
+                <p>seperated by spaces</p>
+                <input type="text" value={dependencies} onChange={(e) => setDependencies(e.target.value)} />
             </div>
 
             <div className="route">

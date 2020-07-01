@@ -21,15 +21,49 @@ const createAppHelper = ({ environment, route, components, projectName }) => {
                     name: comp.name,
                     data: `import React from 'react';\\n\\nconst ${comp.name} = () => {\\n  return (\\n    <div>\\n      ${comp.name} Component\\n    </div>\\n  )\\n}\\n\\nexport default ${comp.name};`
                 })
-            }else if(comp.type === "Functional"){
-
+                //Functional Component
+            } else if (comp.type === "Functional") {
+                componentsToWrite.push({
+                    name: comp.name,
+                    data: `import React from 'react';\\n\\nfunction ${comp.name}() {\\n  return (\\n    <div>\\n      ${comp.name} Component\\n    </div>\\n  )\\n}\\n\\nexport default ${comp.name};`
+                })
+                //Class State Ful Component
+            } else if (comp.type === "ClassStateFul") {
+                componentsToWrite.push({
+                    name: comp.name,
+                    data: `import React from 'react';\\n\\nexport default class ${comp.name} extends React.Component {\\n  constructor(props) {\\n    super(props);\\n    this.state = {};\\n  }\\n\\n  render() {\\n    return (\\n      <div>\\n        <h1>${comp.name}</h1>\\n      </div>\\n    );\\n  }\\n}`
+                })
+                //Class State Less Component
+            } else if (comp.type === "ClassStateLess") {
+                componentsToWrite.push({
+                    name: comp.name,
+                    data: `import React from 'react';\\n\\nexport default class ${comp.name} extends React.Component {\\n\\n  render() {\\n    return (\\n      <div>\\n        <h1>${comp.name}</h1>\\n      </div>\\n    );\\n  }\\n}`
+                })
             }
         } else {
+            //Functional Arrow Component
             if (comp.type === "FunctionalArrow") {
-                //Functional Arrow Page
                 pagesToWrite.push({
                     name: comp.name,
                     data: `import React from 'react';\\n\\nconst ${comp.name} = () => {\\n  return (\\n    <div>\\n      ${comp.name} Component\\n    </div>\\n  )\\n}\\n\\nexport default ${comp.name};`
+                })
+                //Functional Component
+            } else if (comp.type === "Functional") {
+                pagesToWrite.push({
+                    name: comp.name,
+                    data: `import React from 'react';\\n\\nfunction ${comp.name}() {\\n  return (\\n    <div>\\n      ${comp.name} Component\\n    </div>\\n  )\\n}\\n\\nexport default ${comp.name};`
+                })
+                //Class State Ful Component
+            } else if (comp.type === "ClassStateFul") {
+                pagesToWrite.push({
+                    name: comp.name,
+                    data: `import React from 'react';\\n\\nexport default class ${comp.name} extends React.Component {\\n  constructor(props) {\\n    super(props);\\n    this.state = {};\\n  }\\n\\n  render() {\\n    return (\\n      <div>\\n        <h1>${comp.name}</h1>\\n      </div>\\n    );\\n  }\\n}`
+                })
+                //Class State Less Component
+            } else if (comp.type === "ClassStateLess") {
+                pagesToWrite.push({
+                    name: comp.name,
+                    data: `import React from 'react';\\n\\nexport default class ${comp.name} extends React.Component {\\n\\n  render() {\\n    return (\\n      <div>\\n        <h1>${comp.name}</h1>\\n      </div>\\n    );\\n  }\\n}`
                 })
             }
         }

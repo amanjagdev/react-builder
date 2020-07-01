@@ -8,6 +8,14 @@ export const environmentAtom = atom({
     }
 });
 
+export const dependenciesToAddAtom = atom({
+    key: "dependenciesToAddAtom",
+    default: "react-router-dom",
+    persistence_UNSTABLE: {
+        type: 'log'
+    }
+});
+
 export const buildToolAtom = atom({
     key: "buildToolAtom",
     default: "yarn",
