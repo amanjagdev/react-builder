@@ -217,14 +217,16 @@ const Settings = () => {
                 </div>
             </div>
 
-            <button onClick={() => handleCreateApp()}> Create App</button>
+            <div className="create-app-container">
+                <button className="create-app-btn" onClick={() => handleCreateApp()}> Create App</button>
 
-            {
-                script &&
-                <div className="script">
-                    <code>{script}</code>
-                </div>
-            }
+                {
+                    script &&
+                    <div className="script">
+                        <code>{script}</code>
+                    </div>
+                }
+            </div>
 
         </div>
     )

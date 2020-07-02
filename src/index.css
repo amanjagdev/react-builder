@@ -41,8 +41,8 @@
 
 .App .InfoPane .container-info .main {
   font-weight: 500;
+  margin: 20px 0;
   font-size: 20px;
-  line-height: 48px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -95,6 +95,22 @@
 
 .App .SettingsPane {
   padding: 3em 10%;
+}
+
+.App .SettingsPane .create-app-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App .SettingsPane .create-app-container .create-app-btn {
+  margin: 10px 0;
 }
 
 .App .SettingsPane h1 {
@@ -271,5 +287,43 @@
     -ms-grid-columns: 2fr 3fr !important;
         grid-template-columns: 2fr 3fr !important;
   }
+}
+
+::-moz-selection {
+  color: black;
+  background: #46abf5;
+}
+
+::selection {
+  color: black;
+  background: #46abf5;
+}
+
+::-moz-selection {
+  color: black;
+  background: #46abf5;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px grey;
+          box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #46abf5;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #46abf5;
 }
 /*# sourceMappingURL=index.css.map */
