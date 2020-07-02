@@ -1,13 +1,11 @@
 # React builder
 
 An application to help you build your react apps faster.
-It so by make components and pages in react with proper routing and naviagtion with desired dependencies and tools within a reach of click.
-
-### *WORK IN PROGRESS*
+Make your react app with components and pages customised to your needs with routing and naviagtion with desired dependencies already done for you.Everything within a click's reach.
 
 ## Usage
 
-Visit the site : {*__yet to be public__*}
+Visit the site : *__[React Builder](https://react-builder.now.sh/)__*
 
 ## Development
 
