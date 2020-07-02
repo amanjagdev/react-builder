@@ -1,15 +1,14 @@
-const downloadNodeFile = (MainFile) => {
+const downloadNodeFile = (MainFile,thisFileName) => {
     const element = document.createElement("a");
     const file = new Blob([MainFile], { type: 'text/plain' });
     element.href = URL.createObjectURL(file);
-    element.download = "createMyApp.js";
+    element.download = `${thisFileName}.js`;
     document.body.appendChild(element);
     element.click();
 }
 
-const createAppHelper = ({ route, components, projectName }) => {
+const createAppHelper = ({ fileName, route, components, projectName }) => {
     let MainFile = "const fs = require('fs');fs.mkdirSync('" + projectName + "/src/components');fs.mkdirSync('" + projectName + "/src/pages');";
-
     let componentsToWrite = [];
     let pagesToWrite = [];
 
@@ -19,25 +18,25 @@ const createAppHelper = ({ route, components, projectName }) => {
             if (comp.type === "FunctionalArrow") {
                 componentsToWrite.push({
                     name: comp.name,
-                    data: `import React from 'react';\\n\\nconst ${comp.name} = () => {\\n  return (\\n    <div>\\n      ${comp.name} Component\\n    </div>\\n  )\\n}\\n\\nexport default ${comp.name};`
+                    data: `import React from 'react';\\n\\nconst ${comp.name} = () => {\\n  return (\\n    <div>\\n      <h1>${comp.name} Component</h1>\\n    </div>\\n  )\\n}\\n\\nexport default ${comp.name};`
                 })
                 //Functional Component
             } else if (comp.type === "Functional") {
                 componentsToWrite.push({
                     name: comp.name,
-                    data: `import React from 'react';\\n\\nfunction ${comp.name}() {\\n  return (\\n    <div>\\n      ${comp.name} Component\\n    </div>\\n  )\\n}\\n\\nexport default ${comp.name};`
+                    data: `import React from 'react';\\n\\nfunction ${comp.name}() {\\n  return (\\n    <div>\\n      <h1>${comp.name} Component</h1>\\n    </div>\\n  )\\n}\\n\\nexport default ${comp.name};`
                 })
                 //Class State Ful Component
             } else if (comp.type === "ClassStateFul") {
                 componentsToWrite.push({
                     name: comp.name,
-                    data: `import React from 'react';\\n\\nexport default class ${comp.name} extends React.Component {\\n  constructor(props) {\\n    super(props);\\n    this.state = {};\\n  }\\n\\n  render() {\\n    return (\\n      <div>\\n        <h1>${comp.name}</h1>\\n      </div>\\n    );\\n  }\\n}`
+                    data: `import React from 'react';\\n\\nexport default class ${comp.name} extends React.Component {\\n  constructor(props) {\\n    super(props);\\n    this.state = {};\\n  }\\n\\n  render() {\\n    return (\\n      <div>\\n        <h1>${comp.name} Component</h1>\\n      </div>\\n    );\\n  }\\n}`
                 })
                 //Class State Less Component
             } else if (comp.type === "ClassStateLess") {
                 componentsToWrite.push({
                     name: comp.name,
-                    data: `import React from 'react';\\n\\nexport default class ${comp.name} extends React.Component {\\n\\n  render() {\\n    return (\\n      <div>\\n        <h1>${comp.name}</h1>\\n      </div>\\n    );\\n  }\\n}`
+                    data: `import React from 'react';\\n\\nexport default class ${comp.name} extends React.Component {\\n\\n  render() {\\n    return (\\n      <div>\\n        <h1>${comp.name} Component</h1>\\n      </div>\\n    );\\n  }\\n}`
                 })
             }
         } else {
@@ -45,25 +44,25 @@ const createAppHelper = ({ route, components, projectName }) => {
             if (comp.type === "FunctionalArrow") {
                 pagesToWrite.push({
                     name: comp.name,
-                    data: `import React from 'react';\\n\\nconst ${comp.name} = () => {\\n  return (\\n    <div>\\n      ${comp.name} Component\\n    </div>\\n  )\\n}\\n\\nexport default ${comp.name};`
+                    data: `import React from 'react';\\n\\nconst ${comp.name} = () => {\\n  return (\\n    <div>\\n      <h1>${comp.name} Page</h1>\\n    </div>\\n  )\\n}\\n\\nexport default ${comp.name};`
                 })
                 //Functional Component
             } else if (comp.type === "Functional") {
                 pagesToWrite.push({
                     name: comp.name,
-                    data: `import React from 'react';\\n\\nfunction ${comp.name}() {\\n  return (\\n    <div>\\n      ${comp.name} Component\\n    </div>\\n  )\\n}\\n\\nexport default ${comp.name};`
+                    data: `import React from 'react';\\n\\nfunction ${comp.name}() {\\n  return (\\n    <div>\\n      <h1>${comp.name} Page</h1>\\n    </div>\\n  )\\n}\\n\\nexport default ${comp.name};`
                 })
                 //Class State Ful Component
             } else if (comp.type === "ClassStateFul") {
                 pagesToWrite.push({
                     name: comp.name,
-                    data: `import React from 'react';\\n\\nexport default class ${comp.name} extends React.Component {\\n  constructor(props) {\\n    super(props);\\n    this.state = {};\\n  }\\n\\n  render() {\\n    return (\\n      <div>\\n        <h1>${comp.name}</h1>\\n      </div>\\n    );\\n  }\\n}`
+                    data: `import React from 'react';\\n\\nexport default class ${comp.name} extends React.Component {\\n  constructor(props) {\\n    super(props);\\n    this.state = {};\\n  }\\n\\n  render() {\\n    return (\\n      <div>\\n        <h1>${comp.name} Page</h1>\\n      </div>\\n    );\\n  }\\n}`
                 })
                 //Class State Less Component
             } else if (comp.type === "ClassStateLess") {
                 pagesToWrite.push({
                     name: comp.name,
-                    data: `import React from 'react';\\n\\nexport default class ${comp.name} extends React.Component {\\n\\n  render() {\\n    return (\\n      <div>\\n        <h1>${comp.name}</h1>\\n      </div>\\n    );\\n  }\\n}`
+                    data: `import React from 'react';\\n\\nexport default class ${comp.name} extends React.Component {\\n\\n  render() {\\n    return (\\n      <div>\\n        <h1>${comp.name} Page</h1>\\n      </div>\\n    );\\n  }\\n}`
                 })
             }
         }
@@ -79,7 +78,7 @@ const createAppHelper = ({ route, components, projectName }) => {
     //Adding Routes to App.js
     let AppJsContent = `import React from 'react';\\nimport './App.css';\\n\\n`;
     if (route.enabled) {
-        AppJsContent += "import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';\\n\\n"
+        AppJsContent += `import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';\\n\\nimport ${route.navigation} from './components/${route.navigation}\\n`
     }
     components.forEach(comp => {
         if (comp.page) {
@@ -94,7 +93,7 @@ const createAppHelper = ({ route, components, projectName }) => {
             }
         })
     } else {
-        AppJsContent += `            <Router>\\n                <Switch>\\n`;
+        AppJsContent += `            <Router>\\n                <${route.navigation} />\\n                <Switch>\\n`;
         components.forEach(comp => {
             if (comp.page) {
                 AppJsContent += `                    <Route path='/${comp.name}' exact component={${comp.name}} />\\n`
@@ -116,13 +115,13 @@ const createAppHelper = ({ route, components, projectName }) => {
 
         //Checking for navigationComponentType
         if (navComponent.type === "FunctionalArrow") {
-            NavigationFile += `import React from 'react';\\nimport { Link } from 'react-roter-dom';\\n\\nconst ${route.navigation} = () => {\\n    return (\\n        <div>\\n`;
+            NavigationFile += `import React from 'react';\\nimport { Link } from 'react-router-dom';\\n\\nconst ${route.navigation} = () => {\\n    return (\\n        <div>\\n`;
         } else if (navComponent.type === "ClassStateLess") {
-            NavigationFile += `\\nimport React from 'react';\\nimport { Link } from 'react-roter-dom';\\n\\nexport default class ${route.navigation} extends React.Component {\\n\\n  render() {\\n    return (\\n      <div>\\n`;
+            NavigationFile += `\\nimport React from 'react';\\nimport { Link } from 'react-router-dom';\\n\\nexport default class ${route.navigation} extends React.Component {\\n\\n  render() {\\n    return (\\n      <div>\\n`;
         } else if (navComponent.type === "ClassStateFul") {
-            NavigationFile += `import React from 'react';\\nimport { Link } from 'react-roter-dom';\\n\\nexport default class Namefsf extends React.Component {\\n  constructor(props) {\\n    super(props);\\n    this.state = {};\\n  }\\n\\n  render() {\\n    return (\\n      <div>\\n`
+            NavigationFile += `import React from 'react';\\nimport { Link } from 'react-router-dom';\\n\\nexport default class Namefsf extends React.Component {\\n  constructor(props) {\\n    super(props);\\n    this.state = {};\\n  }\\n\\n  render() {\\n    return (\\n      <div>\\n`
         } else {
-            NavigationFile += `import React from 'react';\\nimport { Link } from 'react-roter-dom';\\n\\nfunction ${route.navigation} (){\\n    return (\\n        <div>\\n`;
+            NavigationFile += `import React from 'react';\\nimport { Link } from 'react-router-dom';\\n\\nfunction ${route.navigation} (){\\n    return (\\n        <div>\\n`;
         }
 
         //common route insertion
@@ -144,7 +143,7 @@ const createAppHelper = ({ route, components, projectName }) => {
     }
 
     // console.log(MainFile)
-    downloadNodeFile(MainFile)
+    downloadNodeFile(MainFile,fileName)
 };
 
 export default createAppHelper;

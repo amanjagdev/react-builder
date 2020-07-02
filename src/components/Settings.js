@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import shortid from 'shortid';
 import { useRecoilState, useRecoilValue } from 'recoil'
 
 import createAppHelper from '../helpers/createAppHelper'
@@ -18,11 +19,12 @@ const Settings = () => {
     const [script, setScript] = useState(null);
 
     const handleCreateApp = () => {
-        createAppHelper({ environment, route, components, projectName });
+        const fileName = shortid.generate();
+        createAppHelper({ environment, route, components, projectName,fileName });
         if (buildTool === "yarn") {
-            setScript(`yarn create react-app ${projectName} && yarn add ${dependencies} && node createMyApp.js`);
+            setScript(`yarn create react-app ${projectName} && cd ${projectName} && yarn add ${dependencies} && cd .. && node ${fileName}.js`);
         } else {
-            setScript(`npx create-react-app ${projectName} && npm install ${dependencies} && node createMyApp.js`);
+            setScript(`npx create-react-app ${projectName} && cd ${projectName} && npm install ${dependencies} && cd .. && node ${fileName}.js`);
         }
     }
 
