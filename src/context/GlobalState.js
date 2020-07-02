@@ -36,7 +36,7 @@ export const routeAtom = atom({
     key: "routeAtom",
     default: {
         enabled: false,
-        navigation: "Home"
+        navigation: "NavBar"
     },
     persistence_UNSTABLE: {
         type: 'log'

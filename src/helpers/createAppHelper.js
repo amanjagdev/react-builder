@@ -78,7 +78,7 @@ const createAppHelper = ({ fileName, route, components, projectName }) => {
     //Adding Routes to App.js
     let AppJsContent = `import React from 'react';\\nimport './App.css';\\n\\n`;
     if (route.enabled) {
-        AppJsContent += `import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';\\n\\nimport ${route.navigation} from './components/${route.navigation}\\n`
+        AppJsContent += `import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';\\n\\nimport ${route.navigation} from './components/${route.navigation}';\\n`
     }
     components.forEach(comp => {
         if (comp.page) {
