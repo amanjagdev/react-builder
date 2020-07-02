@@ -7,7 +7,7 @@ const downloadNodeFile = (MainFile) => {
     element.click();
 }
 
-const createAppHelper = ({ environment, route, components, projectName }) => {
+const createAppHelper = ({ route, components, projectName }) => {
     let MainFile = "const fs = require('fs');fs.mkdirSync('" + projectName + "/src/components');fs.mkdirSync('" + projectName + "/src/pages');";
 
     let componentsToWrite = [];
@@ -143,12 +143,8 @@ const createAppHelper = ({ environment, route, components, projectName }) => {
         MainFile += `fs.writeFileSync("${projectName}/src/components/${route.navigation}.js", "${NavigationFile}");`
     }
 
-
-
-
-    console.log(MainFile)
-    //TODO: Add this function when doing production
-    // downloadNodeFile(MainFile)
+    // console.log(MainFile)
+    downloadNodeFile(MainFile)
 };
 
 export default createAppHelper;

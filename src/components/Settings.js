@@ -115,76 +115,116 @@ const Settings = () => {
     return (
         <div className="SettingsPane">
 
-            <div className="env">
-                <h4 className="head">Environment</h4>
-                <select name="environment">
-                    <option value="create-react-app">Create React App</option>
-                    <option disabled value="comming-soon">More comming soon</option>
-                </select>
-            </div>
+            <h1><i className="fas fa-cog"></i> Setup Your App</h1>
 
-            <div className="buildtool">
-                <h4 className="head">Build Tool</h4>
-                <select name="buildtool" value={buildTool} onChange={(e) => setBuildTool(e.target.value)} >
-                    <option value="yarn">yarn</option>
-                    <option value="npx">npx</option>
-                </select>
-            </div>
-
-            <div className="projectname">
-                <h4 className="head">Project Name</h4>
-                <p>All small without spaces</p>
-                <input type="text" value={projectName} onChange={(e) => setProjetctName(e.target.value)} />
-            </div>
-
-            <div className="dependencies">
-                <h4 className="head">Dependencies to be added</h4>
-                <p>seperated by spaces</p>
-                <input type="text" value={dependencies} onChange={(e) => setDependencies(e.target.value)} />
-            </div>
-
-            <div className="route">
-                <h4 className="head">Route</h4>
-                <input type="checkbox" onChange={() => handleCheckBox()} defaultChecked={route.enabled} />
-                <select value={route.navigation} onChange={(e) => handleRouteChange(e)} name="route">
-                    {
-                        components.map(({ name, id }) => <option key={id} value={name}>{name}</option>)
-                    }
-                </select>
-            </div>
-
-            <div className="components">
-                <h4 className="head">Components</h4>
-                <button onClick={() => addEmptyComponent()}>Add Comp</button>
-                <div className="all-comps">
-                    {
-                        components.map(({ id, name, type, page }) =>
-                            <React.Fragment key={id}>
-                                <div className="input-comp">
-                                    <input type="text" onChange={(e) => handleNameChange(e, id)} value={name} />
-                                    <select onChange={(e) => handleTypeChange(e, id)} value={type} >
-                                        <option value="FunctionalArrow">FunctionalArrow</option>
-                                        <option value="Functional">Functional</option>
-                                        <option value="ClassStateFul">ClassStateFul</option>
-                                        <option value="ClassStateLess">ClassStateLess</option>
-                                    </select>
-                                    <input type="checkbox" onChange={() => handlePageChange(id)} defaultChecked={page} />
-                                </div>
-                            </React.Fragment>
-                        )
-                    }
+            <div className="container-settings">
+                <div className="env">
+                    <div className="form-container">
+                        <h4 className="head">Environment</h4>
+                        <select name="environment">
+                            <option value="create-react-app">Create React App</option>
+                            <option disabled value="comming-soon">More comming soon</option>
+                        </select>
+                    </div>
                 </div>
 
+                <div className="buildtool">
+                    <div className="form-container">
+                        <h4 className="head">Build Tool</h4>
+                        <select name="buildtool" value={buildTool} onChange={(e) => setBuildTool(e.target.value)} >
+                            <option value="yarn">yarn</option>
+                            <option value="npx">npx</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div className="projectname">
+                    <div className="form-container">
+                        <div className="main">
+                            <h4 className="head">Project Name</h4>
+                            <p>All small without spaces</p>
+                        </div>
+                        <input type="text" value={projectName} onChange={(e) => setProjetctName(e.target.value)} />
+                    </div>
+                </div>
+
+                <div className="dependencies">
+                    <div className="form-container">
+                        <div className="main">
+                            <h4 className="head">Dependencies to be added</h4>
+                            <p>Seperated by spaces <br /> Do not remove react-router-dom if routing enabled</p>
+                        </div>
+                        <input type="text" value={dependencies} onChange={(e) => setDependencies(e.target.value)} />
+                    </div>
+                </div>
+
+                <div className="route">
+                    <h4 className="head">Routing</h4>
+                    <p>Done using react-router-dom</p>
+                    <div className="route-flex">
+                        <div className="enabled">
+                            <div className="head">Enable </div>
+                            <input type="checkbox" onChange={() => handleCheckBox()} defaultChecked={route.enabled} />
+                        </div>
+                        <div className="navigation">
+                            <div className="head">Navigation Component</div>
+                            <select value={route.navigation} onChange={(e) => handleRouteChange(e)} name="route">
+                                {
+                                    components.map(({ name, id, page }) => {
+                                        if (!page) {
+                                            return <option key={id} value={name}>{name}</option>
+                                        } else {
+                                            return null
+                                        }
+                                    })
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="components">
+                    <div className="head-flex">
+                        <h4 className="head">Components</h4>
+                        <button onClick={() => addEmptyComponent()}>+</button>
+                    </div>
+
+                    <div className="headers-flex">
+                        <div className="name">Name</div>
+                        <div className="type">Type</div>
+                        <div className="page">Page</div>
+                    </div>
+
+                    <div className="all-comps">
+                        {
+                            components.map(({ id, name, type, page }) =>
+                                <React.Fragment key={id}>
+                                    <div className="input-comp">
+                                        <input type="text" onChange={(e) => handleNameChange(e, id)} value={name} />
+                                        <select onChange={(e) => handleTypeChange(e, id)} value={type} >
+                                            <option value="FunctionalArrow">FunctionalArrow</option>
+                                            <option value="Functional">Functional</option>
+                                            <option value="ClassStateFul">ClassStateFul</option>
+                                            <option value="ClassStateLess">ClassStateLess</option>
+                                        </select>
+                                        <input type="checkbox" onChange={() => handlePageChange(id)} defaultChecked={page} />
+                                    </div>
+                                </React.Fragment>
+                            )
+                        }
+                    </div>
+
+                </div>
             </div>
 
             <button onClick={() => handleCreateApp()}> Create App</button>
 
-            <div className="script">
-                {
-                    script &&
+            {
+                script &&
+                <div className="script">
                     <code>{script}</code>
-                }
-            </div>
+                </div>
+            }
 
         </div>
     )

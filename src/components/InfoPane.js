@@ -4,7 +4,7 @@ const InfoPane = () => {
 
     return (
         <div className="InfoPane">
-            <h1><i class="fab fa-react"></i>React Builder</h1>
+            <h1><i className="fab fa-react"></i> React Builder</h1>
             <div className="container-info">
                 <div className="main">Want to create a React App with less no of steps?</div>
 

@@ -1,7 +1,7 @@
-* {
-  font-family: "Poppins";
-  margin: 0;
+*:not(code) {
   padding: 0;
+  margin: 0;
+  font-family: "Poppins";
 }
 
 .App {
@@ -20,6 +20,10 @@
 .App .InfoPane {
   padding: 3em;
   background: #9de1ff;
+}
+
+.App .InfoPane h1 {
+  font-size: 25px;
 }
 
 .App .InfoPane .container-info {
@@ -46,6 +50,7 @@
 }
 
 .App .InfoPane .container-info .box {
+  margin-top: 20px;
   background: #fff;
   border-radius: 25px;
   border: none;
@@ -85,10 +90,19 @@
   -webkit-box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
   border-radius: 37px;
+  outline: none;
 }
 
 .App .SettingsPane {
-  padding: 3em;
+  padding: 3em 10%;
+}
+
+.App .SettingsPane h1 {
+  font-size: 25px;
+}
+
+.App .SettingsPane .container-settings {
+  height: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -98,5 +112,164 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.App .SettingsPane input,
+.App .SettingsPane select {
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px solid #46abf5;
+  outline: none;
+}
+
+.App .SettingsPane option {
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px solid #46abf5;
+  outline: none;
+}
+
+.App .SettingsPane input:focus,
+.App .SettingsPane select:focus {
+  border: 2px solid #2299ee;
+}
+
+.App .SettingsPane .form-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px 0;
+}
+
+.App .SettingsPane .form-container .main p {
+  font-size: 0.9rem;
+  color: #4e4e4e;
+}
+
+.App .SettingsPane .route p {
+  font-size: 0.9rem;
+  color: #4e4e4e;
+}
+
+.App .SettingsPane .route-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 15px;
+}
+
+.App .SettingsPane .route-flex .enabled {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.App .SettingsPane .route-flex .enabled .head {
+  margin-right: 20px;
+}
+
+.App .SettingsPane .route-flex .navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.App .SettingsPane .route-flex .navigation .head {
+  margin-right: 20px;
+}
+
+.App .SettingsPane .components .head-flex {
+  padding: 20px 0px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.App .SettingsPane .components .head-flex button {
+  font-size: 30px;
+  border-radius: 100px;
+  padding: 0 14px;
+}
+
+.App .SettingsPane .components .headers-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 15px;
+  padding: 7px 0px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 500;
+}
+
+.App .SettingsPane .components .headers-flex .type {
+  margin-left: 45px;
+}
+
+.App .SettingsPane .components .input-comp {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 7px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.App .SettingsPane .components .input-comp input[type="checkbox"] {
+  margin-right: 11px;
+}
+
+.script {
+  font-family: "Courier New", Courier, monospace !important;
+  font-size: 13px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 10px;
+  padding: 10px 20px;
+  background: #eee;
+}
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    -ms-grid-columns: 2fr 3fr !important;
+        grid-template-columns: 2fr 3fr !important;
+  }
 }
 /*# sourceMappingURL=index.css.map */
