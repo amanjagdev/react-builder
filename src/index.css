@@ -8,40 +8,52 @@
   background: #fcfcff;
 }
 
-.App .Header {
-  padding: 20px;
-  background: #fff;
-  -webkit-box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-  font-size: 14px;
-}
-
-.App .Footer {
-  padding: 20px;
-  background: #fff;
-  -webkit-box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-  font-size: 10px;
-}
-
 .App .Home .container {
+  height: 100vh;
   background: #fff;
-  margin: 40px;
-  border-radius: 30px;
-  padding: 40px;
-  -webkit-box-shadow: 0px 4px 250px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 4px 250px rgba(0, 0, 0, 0.25);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+}
+
+.App .InfoPane {
+  padding: 3em;
+  background: #9de1ff;
+}
+
+.App .InfoPane .container-info {
+  height: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.App .Home .container .InfoPane {
-  border-right: 1px solid black;
-  padding: 20px 40px 20px 20px;
+.App .InfoPane .container-info .main {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 48px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #0d7cbc;
 }
 
-.App .Home .container .SettingsPane {
-  padding: 20px;
+.App button {
+  background: #46ABF5;
+  border: none;
+  padding: 10px;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  -webkit-box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 37px;
 }
 /*# sourceMappingURL=index.css.map */

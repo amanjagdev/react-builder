@@ -1,43 +1,27 @@
-import React, { useState } from 'react';
-import { useRecoilValue } from 'recoil'
-
-//Helper Function
-import createAppHelper from '../helpers/createAppHelper';
-
-//State
-import { environmentAtom, routeAtom, componentsAtom, projectNameAtom, buildToolAtom, dependenciesToAddAtom } from '../context/GlobalState'
+import React from 'react';
 
 const InfoPane = () => {
-    //State Management
-    const environment = useRecoilValue(environmentAtom);
-    const route = useRecoilValue(routeAtom);
-    const components = useRecoilValue(componentsAtom);
-    const projectName = useRecoilValue(projectNameAtom);
-    const buildTool = useRecoilValue(buildToolAtom);
-    const dependencies = useRecoilValue(dependenciesToAddAtom);
-
-    const [script,setScript] = useState(null);
-
-    const handleCreateApp = () => {
-        createAppHelper({ environment, route, components, projectName });
-        if(buildTool === "yarn"){
-            setScript(`yarn create react-app ${projectName} && yarn add ${dependencies} && node createMyApp.js`);
-        }else{
-            setScript(`npx create-react-app ${projectName} && npm install ${dependencies} && node createMyApp.js`);
-        }
-    }
 
     return (
         <div className="InfoPane">
-            <p>Choose your prefrences here and get your desired react app within seconds</p>
-            <p>This is the usual Structure of the application we will be creating for you.</p>
-            <button onClick={() => handleCreateApp()}> Create App</button>
-            <div className="script">
-                {
-                    script &&
-                    <code>{script}</code>
-                }
+            <h1><i class="fab fa-react"></i>React Builder</h1>
+            <div className="container-info">
+                <div className="main">Want to create a React App with less no of steps?</div>
+
+                <p>You can create a react app with few simple steps. <br/><br />Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat odio itaque temporibus, nulla minima libero aperiam non? Iste, pariatur excepturi! <br/> <br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, veritatis. </p>
+
+                <div className="box">
+                    <h4>Instructions</h4>
+                    <ul>
+                        <li>Step One Lorem ipsum dolor sit amet.</li>
+                        <li>Step One Lorem ipsum dolor sit amet.</li>
+                        <li>Step One Lorem ipsum dolor sit amet.</li>
+                        <li>Step One Lorem ipsum dolor sit amet.</li>
+                    </ul>
+                </div>
+            
             </div>
+            <h4>Made with love by Aman Jagdev</h4>
         </div>
     )
 }

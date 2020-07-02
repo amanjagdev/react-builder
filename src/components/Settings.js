@@ -1,17 +1,30 @@
-import React from 'react';
-import { useRecoilState } from 'recoil'
+import React, { useState } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil'
+
+import createAppHelper from '../helpers/createAppHelper'
 
 //State
-import { routeAtom, componentsAtom, projectNameAtom, buildToolAtom, dependenciesToAddAtom } from '../context/GlobalState'
+import { routeAtom, componentsAtom, projectNameAtom, buildToolAtom, dependenciesToAddAtom, environmentAtom } from '../context/GlobalState'
 
 const Settings = () => {
 
     //State Management
     const [route, setRoute] = useRecoilState(routeAtom);
-    const [porjectName, setProjetctName] = useRecoilState(projectNameAtom);
+    const environment = useRecoilValue(environmentAtom);
+    const [projectName, setProjetctName] = useRecoilState(projectNameAtom);
     const [components, setComponents] = useRecoilState(componentsAtom);
     const [buildTool, setBuildTool] = useRecoilState(buildToolAtom);
     const [dependencies, setDependencies] = useRecoilState(dependenciesToAddAtom);
+    const [script, setScript] = useState(null);
+
+    const handleCreateApp = () => {
+        createAppHelper({ environment, route, components, projectName });
+        if (buildTool === "yarn") {
+            setScript(`yarn create react-app ${projectName} && yarn add ${dependencies} && node createMyApp.js`);
+        } else {
+            setScript(`npx create-react-app ${projectName} && npm install ${dependencies} && node createMyApp.js`);
+        }
+    }
 
     const handleRouteChange = e => {
         e.preventDefault();
@@ -121,9 +134,9 @@ const Settings = () => {
             <div className="projectname">
                 <h4 className="head">Project Name</h4>
                 <p>All small without spaces</p>
-                <input type="text" value={porjectName} onChange={(e) => setProjetctName(e.target.value)} />
+                <input type="text" value={projectName} onChange={(e) => setProjetctName(e.target.value)} />
             </div>
-            
+
             <div className="dependencies">
                 <h4 className="head">Dependencies to be added</h4>
                 <p>seperated by spaces</p>
@@ -162,6 +175,15 @@ const Settings = () => {
                     }
                 </div>
 
+            </div>
+
+            <button onClick={() => handleCreateApp()}> Create App</button>
+
+            <div className="script">
+                {
+                    script &&
+                    <code>{script}</code>
+                }
             </div>
 
         </div>
