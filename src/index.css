@@ -121,6 +121,39 @@
   margin: 10px 0;
 }
 
+.App .SettingsPane .github-link-buttons-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.App .SettingsPane .github-link-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.App .SettingsPane .github-link-button-button{
+  max-width: none;
+  margin:0 5px;
+  color:white;
+  font-size: 12px;
+  transition: 0.5s ease all;
+}
+.App .SettingsPane .github-link-button-button:hover{
+  background-color: #0093ff;
+  cursor: pointer;
+
+}
+
+.App .SettingsPane .github-link-button-link:visited,
+.App .SettingsPane .github-link-button-link{
+
+  text-decoration: none;
+  
+}
+
+
+
+
 .App .SettingsPane h1 {
   font-size: 25px;
 }

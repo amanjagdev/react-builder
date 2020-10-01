@@ -116,8 +116,26 @@ const Settings = () => {
 
     return (
         <div className="SettingsPane">
+            <div className="github-link-buttons-container">
+                <h1><i className="fas fa-cog"></i> Setup Your App</h1>
+                <div className="github-link-buttons">
+                        <a className="github-link-button-link" href="https://github.com/amanjagdev/react-builder">
+                        <button className="github-link-button-button">
+                            Star us on Github
+                        </button>
+                        </a>
 
-            <h1><i className="fas fa-cog"></i> Setup Your App</h1>
+                    
+                        <a className="github-link-button-link" href="https://github.com/amanjagdev/react-builder">
+                        <button className="github-link-button-button" >
+                            Fork us on Github
+                        </button>
+                        </a>
+
+
+                    
+                </div>
+            </div>
 
             <div className="container-settings">
                 <div className="env">
