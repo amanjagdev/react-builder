@@ -174,13 +174,19 @@
   margin: 10px 0;
 }
 
+.App .SettingsPane .SettingsHead {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .App .SettingsPane .Github-repo {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
 .App .SettingsPane .Github-repo .github-links {
-  margin-right: 20px;
+  margin-right: 10px;
 }
 .App .SettingsPane .form-container .main p {
   font-size: 0.9rem;

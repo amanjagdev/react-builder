@@ -126,36 +126,39 @@ const Settings = () => {
 
   return (
     <div className='SettingsPane'>
-      <div className='Github-repo'>
-        <span className='github-links'>
-          <a
-            className='github-button'
-            href='https://github.com/amanjagdev/react-builder'
-            data-color-scheme='no-preference: dark; light: dark; dark: dark;'
-            data-size='large'
-            data-show-count='true'
-            aria-label='Star amanjagdev/react-builder on GitHub'
-          >
-            Star
-          </a>
-        </span>
-        <span className='github-links'>
-          <a
-            className='github-button'
-            href='https://github.com/amanjagdev/react-builder/fork'
-            data-color-scheme='no-preference: dark; light: dark; dark: dark;'
-            data-size='large'
-            data-show-count='true'
-            aria-label='Fork amanjagdev/react-builder on GitHub'
-          >
-            Fork
-          </a>
-        </span>
+      <div className='SettingsHead'>
+        <div>
+          <h1>
+            <i className='fas fa-cog'></i> Setup Your App
+          </h1>
+        </div>
+        <div className='Github-repo'>
+          <span className='github-links'>
+            <a
+              className='github-button'
+              href='https://github.com/amanjagdev/react-builder'
+              data-color-scheme='no-preference: dark; light: dark; dark: dark;'
+              data-size='large'
+              data-show-count='true'
+              aria-label='Star amanjagdev/react-builder on GitHub'
+            >
+              Star
+            </a>
+          </span>
+          <span>
+            <a
+              className='github-button'
+              href='https://github.com/amanjagdev/react-builder/fork'
+              data-color-scheme='no-preference: dark; light: dark; dark: dark;'
+              data-size='large'
+              data-show-count='true'
+              aria-label='Fork amanjagdev/react-builder on GitHub'
+            >
+              Fork
+            </a>
+          </span>
+        </div>
       </div>
-      <h1>
-        <i className='fas fa-cog'></i> Setup Your App
-      </h1>
-
       <div className='container-settings'>
         <div className='env'>
           <div className='form-container'>
