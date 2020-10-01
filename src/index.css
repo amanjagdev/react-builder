@@ -108,6 +108,17 @@
   margin: 10px;
 }
 
+.App .SettingsPane .Page-analytics {
+  margin-top: 3px;
+  font-size: 14px;
+  font-weight: 550;
+  color: #adb5bd;
+}
+
+.App .SettingsPane #visits {
+  color: #343a40;
+}
+
 .App .SettingsPane .create-app-container {
   display: -webkit-box;
   display: -ms-flexbox;
