@@ -29,12 +29,9 @@ const Settings = () => {
 
 
   const updateUserCount = () => {
-    fetch('https://api.countapi.xyz/update/react-builder.now/userCount/?amount=1')
+    fetch('https://api.countapi.xyz/update/react-builder/usedby/?amount=1')
       .then(res => res.json())
-      .then(res => {
-        setUserCount(res.value);
-        localStorage.setItem('userCount', res.value)
-      })
+      .then(res => setUserCount(res.value))
   }
 
   const handleCreateApp = () => {
@@ -139,29 +136,27 @@ const Settings = () => {
   };
 
   const updateVisitCount = () => {
-    // const visitElem = document.getElementById('visits');
-    fetch(' https://api.countapi.xyz/update/react-builder.now/viewCount/?amount=1')
+    fetch(' https://api.countapi.xyz/update/react-builder/views/?amount=1')
       .then(res => res.json())
-      .then(res => {
-        setVisitCount(res.value)
-        // visitElem.innerHTML = res.value;
-      })
+      .then(res => setVisitCount(res.value))
+  }
+  const getUsedBy = () => {
+    fetch('https://api.countapi.xyz/get/react-builder/usedby')
+      .then(res => res.json())
+      .then(res => setUserCount(res.value))
   }
 
   useEffect(() => {
     updateVisitCount();
-    let storageUserCount = localStorage.getItem('userCount');
-    if (storageUserCount) {
-      setUserCount(storageUserCount);
-    }
+    getUsedBy();
   }, [])
 
   return (
     <div className='SettingsPane'>
       <div className='SettingsHead'>
         <div>
-          <h1>
-            <i className='fas fa-cog'></i> Setup Your App
+          <h1 className="setup-app">
+            <img src={require("../assets/gear.png")} className="gearIcon" alt="gear icon"/> Setup Your App
           </h1>
         </div>
 
