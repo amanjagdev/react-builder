@@ -175,19 +175,33 @@
 }
 
 .App .SettingsPane .SettingsHead {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -ms-flex-pack: distribute;
   justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 .App .SettingsPane .Github-repo {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -ms-flex-pack: distribute;
   justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
+
 .App .SettingsPane .Github-repo .github-links {
   margin-right: 10px;
 }
+
 .App .SettingsPane .form-container .main p {
   font-size: 0.9rem;
   color: #4e4e4e;
