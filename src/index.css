@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
 
 *:not(code) {
   padding: 0;
@@ -16,7 +16,7 @@
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 2fr;
-      grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 2fr;
 }
 
 .App .InfoPane {
@@ -29,7 +29,7 @@
   display: flex;
   align-items: center;
 }
-.App .InfoPane img{
+.App .InfoPane img {
   height: 30px;
   margin-right: 15px;
 }
@@ -40,11 +40,11 @@
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .App .InfoPane .container-info .main {
@@ -52,8 +52,8 @@
   margin: 20px 0;
   font-size: 20px;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   color: #0d7cbc;
 }
 
@@ -64,7 +64,7 @@
   border: none;
   padding: 20px;
   -webkit-box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
 }
 
 .App .InfoPane .container-info .box h4 {
@@ -96,13 +96,16 @@
   max-width: -moz-fit-content;
   max-width: fit-content;
   -webkit-box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
   border-radius: 37px;
   outline: none;
 }
 
 .App .SettingsPane {
-  padding: 3em 10%;
+  padding: 3em 8%;
+}
+.App .SettingsPane .Github-repo a {
+  margin: 10px;
 }
 
 .App .SettingsPane .create-app-container {
@@ -110,11 +113,11 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .App .SettingsPane .create-app-container .create-app-btn {
@@ -131,11 +134,11 @@
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .App .SettingsPane input,
@@ -163,14 +166,22 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin: 10px 0;
 }
 
+.App .SettingsPane .Github-repo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.App .SettingsPane .Github-repo .github-links {
+  margin-right: 20px;
+}
 .App .SettingsPane .form-container .main p {
   font-size: 0.9rem;
   color: #4e4e4e;
@@ -186,11 +197,11 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-size: 15px;
 }
 
@@ -199,10 +210,10 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 .App .SettingsPane .route-flex .enabled .head {
@@ -214,10 +225,10 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 .App .SettingsPane .route-flex .navigation .head {
@@ -227,14 +238,14 @@
 .App .SettingsPane .components .head-flex {
   padding: 20px 0px;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .App .SettingsPane .components .head-flex button {
@@ -250,11 +261,11 @@
   font-size: 15px;
   padding: 7px 0px;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-weight: 500;
 }
 
@@ -264,15 +275,15 @@
 
 .App .SettingsPane .components .input-comp {
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 7px 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .App .SettingsPane .components .input-comp input[type="checkbox"] {
@@ -293,7 +304,7 @@
 @media only screen and (max-width: 1200px) {
   .container {
     -ms-grid-columns: 2fr 3fr !important;
-        grid-template-columns: 2fr 3fr !important;
+    grid-template-columns: 2fr 3fr !important;
   }
 }
 
@@ -320,7 +331,7 @@
 /* Track */
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 5px grey;
-          box-shadow: inset 0 0 5px grey;
+  box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
 
