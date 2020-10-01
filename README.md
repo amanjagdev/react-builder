@@ -17,7 +17,7 @@
   <h4 >
     Build your react apps faster 
   </h4>
-  <p>Make your react app with components and pages customised to your needs with routing and naviagtion with desired dependencies already done for you. Everything within a click's reach.</p>
+  <p>Make your react app with components and pages customized to your needs with routing and navigation with desired dependencies already done for you. Everything within a click's reach.</p>
     .
     <a href="https://github.com/amanjagdev/react-builder/issues">Report Bug</a>
     ·
@@ -57,15 +57,15 @@
 
 <img src = "screenshots/main.png"  >
 
-An application to help you build your react apps faster. Make your react app with components and pages customised to your needs with routing and naviagtion with desired dependencies already done for you.Everything within a click's reach.
+An application to help you build your react apps faster. Make your react app with components and pages customized to your needs with routing and navigation with desired dependencies already done for you. Everything within a click's reach.
 
 ### What it does for you?
 
-- Create Functional or Class based compoenents with state integrated or optional according to you.
+- Create Functional or Class based components with state integrated or optional according to you.
 - Create Functional or Class based pages with state integrated or optional according to you.
-- Does routing for you and make the corresponding navigation component for it
-- Add dependencies to your project
-- All above things with a single click and you are ready to go
+- Does routing for you and make the corresponding navigation component for it.
+- Add dependencies to your project.
+- All above things with a single click and you are ready to go.
 
 ### Built With
 
@@ -86,7 +86,7 @@ To get a local copy up and for running the project locally, follow these simple 
 
 ### Prerequisites
 
-Have Node along with a package manager installed in the system
+Have Node along with a package manager installed in the system.
 
 ### Installation
 
@@ -133,7 +133,7 @@ Ex: We have `react-router-dom axios` etc..
 
 ##### Step 3 | Add Components and Pages
 
-Here you can add all the component Names with their type and you can select whether a component is a page or not.
+Here you can add all the component Names with their type, and you can select whether a component is a page or not.
 
 _Note: Routing will only be done between components marked as pages_
 
