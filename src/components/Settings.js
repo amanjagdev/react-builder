@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import shortid from "shortid";
 import { useRecoilState, useRecoilValue } from "recoil";
 
@@ -24,7 +24,21 @@ const Settings = () => {
   const [dependencies, setDependencies] = useRecoilState(dependenciesToAddAtom);
   const [script, setScript] = useState(null);
 
+  const [visitCount, setVisitCount] = useState(0);
+  const [userCount, setUserCount] = useState(0);
+
+
+  const updateUserCount = () => {
+    fetch('https://api.countapi.xyz/update/react-builder.now/userCount/?amount=1')
+      .then(res => res.json())
+      .then(res => {
+        setUserCount(res.value);
+        localStorage.setItem('userCount', res.value)
+      })
+  }
+
   const handleCreateApp = () => {
+    updateUserCount();
     const fileName = shortid.generate();
     createAppHelper({ environment, route, components, projectName, fileName });
     if (buildTool === "yarn") {
@@ -124,6 +138,24 @@ const Settings = () => {
     });
   };
 
+  const updateVisitCount = () => {
+    // const visitElem = document.getElementById('visits');
+    fetch(' https://api.countapi.xyz/update/react-builder.now/viewCount/?amount=1')
+      .then(res => res.json())
+      .then(res => {
+        setVisitCount(res.value)
+        // visitElem.innerHTML = res.value;
+      })
+  }
+
+  useEffect(() => {
+    updateVisitCount();
+    let storageUserCount = localStorage.getItem('userCount');
+    if (storageUserCount) {
+      setUserCount(storageUserCount);
+    }
+  }, [])
+
   return (
     <div className='SettingsPane'>
       <div className='SettingsHead'>
@@ -131,6 +163,16 @@ const Settings = () => {
           <h1>
             <i className='fas fa-cog'></i> Setup Your App
           </h1>
+        </div>
+
+        <div className="Page-analytics">
+          <span className="page-visits">
+            <span id="visits">{visitCount}</span> visits
+          </span>
+          <br />
+          <span className="page-visits">
+            <span id="visits">{userCount}</span> users
+          </span>
         </div>
         <div className='Github-repo'>
           <span className='github-links'>
