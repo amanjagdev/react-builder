@@ -136,7 +136,7 @@ const Settings = () => {
     });
   };
 
-  const handleDelete = (e, id) => {
+  const handleDelete = (id) => {
     setComponents((prevState) => {
       let tempArray = [];
       prevState.forEach((comp) => {
