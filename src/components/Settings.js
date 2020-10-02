@@ -346,7 +346,7 @@ const Settings = () => {
                   <DeleteIcon
                     className="delete-icon"
                     fill="currentColor"
-                    onClick={(e) => handleDelete(e, id)}
+                    onClick={() => handleDelete(id)}
                   />
                 </div>
               </React.Fragment>
