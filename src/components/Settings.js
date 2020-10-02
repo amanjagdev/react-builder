@@ -4,6 +4,8 @@ import { useRecoilState, useRecoilValue } from "recoil";
 
 import createAppHelper from "../helpers/createAppHelper";
 
+import { ReactComponent as DeleteIcon } from "../assets/trash.svg";
+
 //State
 import {
   routeAtom,
@@ -27,12 +29,11 @@ const Settings = () => {
   const [visitCount, setVisitCount] = useState(0);
   const [userCount, setUserCount] = useState(0);
 
-
   const updateUserCount = () => {
-    fetch('https://api.countapi.xyz/update/react-builder/usedby/?amount=1')
-      .then(res => res.json())
-      .then(res => setUserCount(res.value))
-  }
+    fetch("https://api.countapi.xyz/update/react-builder/usedby/?amount=1")
+      .then((res) => res.json())
+      .then((res) => setUserCount(res.value));
+  };
 
   const handleCreateApp = () => {
     updateUserCount();
@@ -135,28 +136,45 @@ const Settings = () => {
     });
   };
 
+  const handleDelete = (e, id) => {
+    setComponents((prevState) => {
+      let tempArray = [];
+      prevState.forEach((comp) => {
+        if (comp.id !== id) {
+          tempArray.push(comp);
+        }
+      });
+      return tempArray;
+    });
+  };
+
   const updateVisitCount = () => {
-    fetch(' https://api.countapi.xyz/update/react-builder/views/?amount=1')
-      .then(res => res.json())
-      .then(res => setVisitCount(res.value))
-  }
+    fetch(" https://api.countapi.xyz/update/react-builder/views/?amount=1")
+      .then((res) => res.json())
+      .then((res) => setVisitCount(res.value));
+  };
   const getUsedBy = () => {
-    fetch('https://api.countapi.xyz/get/react-builder/usedby')
-      .then(res => res.json())
-      .then(res => setUserCount(res.value))
-  }
+    fetch("https://api.countapi.xyz/get/react-builder/usedby")
+      .then((res) => res.json())
+      .then((res) => setUserCount(res.value));
+  };
 
   useEffect(() => {
     updateVisitCount();
     getUsedBy();
-  }, [])
+  }, []);
 
   return (
-    <div className='SettingsPane'>
-      <div className='SettingsHead'>
+    <div className="SettingsPane">
+      <div className="SettingsHead">
         <div>
           <h1 className="setup-app">
-            <img src={require("../assets/gear.png")} className="gearIcon" alt="gear icon"/> Setup Your App
+            <img
+              src={require("../assets/gear.png")}
+              className="gearIcon"
+              alt="gear icon"
+            />{" "}
+            Setup Your App
           </h1>
         </div>
 
@@ -169,109 +187,109 @@ const Settings = () => {
             <span id="visits">{userCount}</span> users
           </span>
         </div>
-        <div className='Github-repo'>
-          <span className='github-links'>
+        <div className="Github-repo">
+          <span className="github-links">
             <a
-              className='github-button'
-              href='https://github.com/amanjagdev/react-builder'
-              data-color-scheme='no-preference: dark; light: dark; dark: dark;'
-              data-size='large'
-              data-show-count='true'
-              aria-label='Star amanjagdev/react-builder on GitHub'
+              className="github-button"
+              href="https://github.com/amanjagdev/react-builder"
+              data-color-scheme="no-preference: dark; light: dark; dark: dark;"
+              data-size="large"
+              data-show-count="true"
+              aria-label="Star amanjagdev/react-builder on GitHub"
             >
               Star
             </a>
           </span>
           <span>
             <a
-              className='github-button'
-              href='https://github.com/amanjagdev/react-builder/fork'
-              data-color-scheme='no-preference: dark; light: dark; dark: dark;'
-              data-size='large'
-              data-show-count='true'
-              aria-label='Fork amanjagdev/react-builder on GitHub'
+              className="github-button"
+              href="https://github.com/amanjagdev/react-builder/fork"
+              data-color-scheme="no-preference: dark; light: dark; dark: dark;"
+              data-size="large"
+              data-show-count="true"
+              aria-label="Fork amanjagdev/react-builder on GitHub"
             >
               Fork
             </a>
           </span>
         </div>
       </div>
-      <div className='container-settings'>
-        <div className='env'>
-          <div className='form-container'>
-            <h4 className='head'>Environment</h4>
-            <select name='environment'>
-              <option value='create-react-app'>Create React App</option>
-              <option disabled value='comming-soon'>
+      <div className="container-settings">
+        <div className="env">
+          <div className="form-container">
+            <h4 className="head">Environment</h4>
+            <select name="environment">
+              <option value="create-react-app">Create React App</option>
+              <option disabled value="comming-soon">
                 More comming soon
               </option>
             </select>
           </div>
         </div>
 
-        <div className='buildtool'>
-          <div className='form-container'>
-            <h4 className='head'>Build Tool</h4>
+        <div className="buildtool">
+          <div className="form-container">
+            <h4 className="head">Build Tool</h4>
             <select
-              name='buildtool'
+              name="buildtool"
               value={buildTool}
               onChange={(e) => setBuildTool(e.target.value)}
             >
-              <option value='yarn'>yarn</option>
-              <option value='npx'>npx</option>
+              <option value="yarn">yarn</option>
+              <option value="npx">npx</option>
             </select>
           </div>
         </div>
 
-        <div className='projectname'>
-          <div className='form-container'>
-            <div className='main'>
-              <h4 className='head'>Project Name</h4>
+        <div className="projectname">
+          <div className="form-container">
+            <div className="main">
+              <h4 className="head">Project Name</h4>
               <p>All small without spaces</p>
             </div>
             <input
-              type='text'
+              type="text"
               value={projectName}
               onChange={(e) => setProjetctName(e.target.value)}
             />
           </div>
         </div>
 
-        <div className='dependencies'>
-          <div className='form-container'>
-            <div className='main'>
-              <h4 className='head'>Dependencies to be added</h4>
+        <div className="dependencies">
+          <div className="form-container">
+            <div className="main">
+              <h4 className="head">Dependencies to be added</h4>
               <p>
                 Seperated by spaces <br /> Do not remove react-router-dom if
                 routing enabled
               </p>
             </div>
             <input
-              type='text'
+              type="text"
               value={dependencies}
               onChange={(e) => setDependencies(e.target.value)}
             />
           </div>
         </div>
 
-        <div className='route'>
-          <h4 className='head'>Routing</h4>
+        <div className="route">
+          <h4 className="head">Routing</h4>
           <p>Done using react-router-dom</p>
-          <div className='route-flex'>
-            <div className='enabled'>
-              <div className='head'>Enable </div>
+          <div className="route-flex">
+            <div className="enabled">
+              <div className="head">Enable </div>
               <input
-                type='checkbox'
+                type="checkbox"
                 onChange={() => handleCheckBox()}
                 defaultChecked={route.enabled}
               />
             </div>
-            <div className='navigation'>
-              <div className='head'>Navigation Component</div>
+            <div className="navigation">
+              <div className="head">Navigation Component</div>
               <select
                 value={route.navigation}
                 onChange={(e) => handleRouteChange(e)}
-                name='route'
+                name="route"
               >
                 {components.map(({ name, id, page }) => {
                   if (!page) {
@@ -289,24 +307,25 @@ const Settings = () => {
           </div>
         </div>
 
-        <div className='components'>
-          <div className='head-flex'>
-            <h4 className='head'>Components</h4>
+        <div className="components">
+          <div className="head-flex">
+            <h4 className="head">Components</h4>
             <button onClick={() => addEmptyComponent()}>+</button>
           </div>
 
-          <div className='headers-flex'>
-            <div className='name'>Name</div>
-            <div className='type'>Type</div>
-            <div className='page'>Page</div>
+          <div className="headers-flex">
+            <div className="name">Name</div>
+            <div className="type">Type</div>
+            <div className="page">Page</div>
+            <div className="delete"></div>
           </div>
 
-          <div className='all-comps'>
+          <div className="all-comps">
             {components.map(({ id, name, type, page }) => (
               <React.Fragment key={id}>
-                <div className='input-comp'>
+                <div className="input-comp">
                   <input
-                    type='text'
+                    type="text"
                     onChange={(e) => handleNameChange(e, id)}
                     value={name}
                   />
@@ -314,15 +333,20 @@ const Settings = () => {
                     onChange={(e) => handleTypeChange(e, id)}
                     value={type}
                   >
-                    <option value='FunctionalArrow'>FunctionalArrow</option>
-                    <option value='Functional'>Functional</option>
-                    <option value='ClassStateFul'>ClassStateFul</option>
-                    <option value='ClassStateLess'>ClassStateLess</option>
+                    <option value="FunctionalArrow">FunctionalArrow</option>
+                    <option value="Functional">Functional</option>
+                    <option value="ClassStateFul">ClassStateFul</option>
+                    <option value="ClassStateLess">ClassStateLess</option>
                   </select>
                   <input
-                    type='checkbox'
+                    type="checkbox"
                     onChange={() => handlePageChange(id)}
                     defaultChecked={page}
+                  />
+                  <DeleteIcon
+                    className="delete-icon"
+                    fill="currentColor"
+                    onClick={(e) => handleDelete(e, id)}
                   />
                 </div>
               </React.Fragment>
@@ -331,14 +355,14 @@ const Settings = () => {
         </div>
       </div>
 
-      <div className='create-app-container'>
-        <button className='create-app-btn' onClick={() => handleCreateApp()}>
+      <div className="create-app-container">
+        <button className="create-app-btn" onClick={() => handleCreateApp()}>
           {" "}
           Create App
         </button>
 
         {script && (
-          <div className='script'>
+          <div className="script">
             <code>{script}</code>
           </div>
         )}

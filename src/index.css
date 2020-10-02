@@ -303,7 +303,25 @@ h1.setup-app {
 }
 
 .App .SettingsPane .components .headers-flex .type {
-  margin-left: 45px;
+  margin-left: 100px;
+}
+
+.App .SettingsPane .components .headers-flex .page {
+  margin-left: 60px;
+}
+
+.delete-icon {
+  padding: 0.2rem;
+  border-radius: 100%;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.delete-icon:hover {
+  color: #ff382c;
+}
+
+.delete-icon:active {
+  background-color: #ffdddd;
 }
 
 .App .SettingsPane .components .input-comp {
