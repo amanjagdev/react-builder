@@ -10,7 +10,7 @@ img.gearIcon {
   height: 40px;
   margin-right: 10px;
 }
-h1.setup-app{
+h1.setup-app {
   display: flex;
 }
 
@@ -43,12 +43,9 @@ h1.setup-app{
 }
 
 .App .InfoPane .container-info {
-  height: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -148,12 +145,9 @@ h1.setup-app{
 }
 
 .App .SettingsPane .container-settings {
-  height: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
@@ -190,7 +184,7 @@ h1.setup-app{
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin: 10px 0;
+  margin: 16px 0px;
 }
 
 .App .SettingsPane .SettingsHead {
@@ -309,7 +303,25 @@ h1.setup-app{
 }
 
 .App .SettingsPane .components .headers-flex .type {
-  margin-left: 45px;
+  margin-left: 100px;
+}
+
+.App .SettingsPane .components .headers-flex .page {
+  margin-left: 60px;
+}
+
+.delete-icon {
+  padding: 0.2rem;
+  border-radius: 100%;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.delete-icon:hover {
+  color: #ff382c;
+}
+
+.delete-icon:active {
+  background-color: #ffdddd;
 }
 
 .App .SettingsPane .components .input-comp {
