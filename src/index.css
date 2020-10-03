@@ -1,5 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
 
+:root {
+  --background-color: white;
+  --text-color: #1c1c1c;
+  --accent-color: #46abf5;
+  --pane-background: #9de1ff;
+  --visits-color: #343a40;
+  --grey-text: #4e4e4e;
+}
+
+[data-theme="dark"] {
+  --background-color: #1c1c1c;
+  --text-color: white;
+  --accent-color: #46abf5;
+  --pane-background: #111111;
+  --visits-color: #f6f6f6;
+  --grey-text: #c3c3c3;
+}
+
 *:not(code) {
   padding: 0;
   margin: 0;
@@ -15,12 +33,13 @@ h1.setup-app {
 }
 
 .App {
-  background: #fcfcff;
+  background: var(--background-color);
+  color: var(--text-color);
 }
 
 .App .Home .container {
-  height: 100vh;
-  background: #fff;
+  min-height: 100vh;
+  background: var(--background-color);
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 2fr;
@@ -29,7 +48,7 @@ h1.setup-app {
 
 .App .InfoPane {
   padding: 3em;
-  background: #9de1ff;
+  background: var(--pane-background);
 }
 
 .App .InfoPane h1 {
@@ -64,7 +83,7 @@ h1.setup-app {
 
 .App .InfoPane .container-info .box {
   margin-top: 20px;
-  background: #fff;
+  background: var(--background-color);
   border-radius: 25px;
   border: none;
   padding: 20px;
@@ -121,7 +140,7 @@ h1.setup-app {
 }
 
 .App .SettingsPane #visits {
-  color: #343a40;
+  color: var(--visits-color);
 }
 
 .App .SettingsPane .create-app-container {
@@ -156,6 +175,8 @@ h1.setup-app {
 
 .App .SettingsPane input,
 .App .SettingsPane select {
+  background: var(--background-color);
+  color: var(--text-color);
   padding: 3px;
   border-radius: 5px;
   border: 1px solid #46abf5;
@@ -217,12 +238,12 @@ h1.setup-app {
 
 .App .SettingsPane .form-container .main p {
   font-size: 0.9rem;
-  color: #4e4e4e;
+  color: var(--grey-text);
 }
 
 .App .SettingsPane .route p {
   font-size: 0.9rem;
-  color: #4e4e4e;
+  color: var(--grey-text);
 }
 
 .App .SettingsPane .route-flex {
@@ -419,7 +440,7 @@ input:checked + .slider::before {
   width: fit-content;
   border-radius: 10px;
   padding: 10px 20px;
-  background: #eee;
+  background: var(--background-color);
 }
 
 @media only screen and (max-width: 1200px) {
