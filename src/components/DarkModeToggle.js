@@ -23,7 +23,7 @@ const DarkModeToggle = () => {
       <label className="theme-switch">
         <input
           type="checkbox"
-          checked={theme == "dark"}
+          checked={theme === "dark"}
           onChange={() => changeTheme()}
         />
         <div className="slider round"></div>
