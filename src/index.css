@@ -397,3 +397,35 @@ h1.setup-app {
   background: #46abf5;
 }
 /*# sourceMappingURL=index.css.map */
+
+.dark-mode .App .InfoPane .container-info .box {
+  color:#ffffaf;
+  background: rgb(20, 20, 20);
+}
+
+.dm-toggle{
+  float: right !important;
+}
+.dark-mode .SettingsPane{
+  color:#ffffaf;
+  background: rgb(20, 20, 20);
+}
+
+.dark-mode .head{
+  color:#ffffaf;
+  background: rgb(20, 20, 20);
+}
+
+.dark-mode  select{
+  color:#ffffff;
+  background: rgb(20, 20, 20);
+}
+
+.dark-mode  input{
+  color:#ffffff;
+  background: rgb(20, 20, 20);
+}
+.dark-mode .SettingsPane #visits{
+  color:#ffffaf;
+  background: rgb(20, 20, 20);
+}
