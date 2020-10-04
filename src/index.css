@@ -418,6 +418,14 @@ h1.setup-app {
     margin:20px;
   }
 
+  input[type=text]{
+    width:90px;
+  }
+
+  select{
+    width:100px;
+  }
+
 }
 
 .Mobile-flex{
