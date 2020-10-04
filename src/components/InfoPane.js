@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../App";
 import { DARK } from "../constants/constants";
-import { useMobileDetect } from "../hooks/useMobileDetect";
+import { isMobile } from "../helpers/utility";
 import { useWindowSize } from "../hooks/useWindowSize";
 import { GithubMetrics } from "./GithubMetrics";
 
 const InfoPane = () => {
   const mode = useContext(ThemeContext);
   const themeClass = mode.theme === DARK ? mode.theme : null;
-  const isMobile = useMobileDetect();
   const windowSize = useWindowSize();
   return (
     <div className={`InfoPane ${themeClass} ${isMobile && "mobileInfoPane"}`}>

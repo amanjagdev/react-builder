@@ -15,13 +15,12 @@ import {
   environmentAtom,
 } from "../context/GlobalState";
 import { ThemeContext } from "../App";
-import { useMobileDetect } from "../hooks/useMobileDetect";
+import { isMobile } from "../helpers/utility";
 import { GithubMetrics } from "./GithubMetrics";
 
 const Settings = () => {
   //State Management
   const [route, setRoute] = useRecoilState(routeAtom);
-  const isMobile = useMobileDetect();
   const environment = useRecoilValue(environmentAtom);
   const [projectName, setProjetctName] = useRecoilState(projectNameAtom);
   const [components, setComponents] = useRecoilState(componentsAtom);

@@ -8,6 +8,7 @@ export const GithubMetrics = ({ isCreated = false, setIsCreated }) => {
   const mountedRef = useRef(true);
   const mode = useContext(ThemeContext);
   const themeClass = mode.theme === DARK ? mode.theme : null;
+
   useEffect(() => {
     updateVisitCount();
     updateUserCount();
