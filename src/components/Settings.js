@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import shortid from "shortid";
 import { useRecoilState, useRecoilValue } from "recoil";
-
+import { DARK } from "../constants/constants";
 import createAppHelper from "../helpers/createAppHelper";
-
 import { ReactComponent as DeleteIcon } from "../assets/trash.svg";
 
 //State
@@ -15,6 +14,7 @@ import {
   dependenciesToAddAtom,
   environmentAtom,
 } from "../context/GlobalState";
+import { ThemeContext } from "../App";
 
 const Settings = () => {
   //State Management
@@ -25,9 +25,10 @@ const Settings = () => {
   const [buildTool, setBuildTool] = useRecoilState(buildToolAtom);
   const [dependencies, setDependencies] = useRecoilState(dependenciesToAddAtom);
   const [script, setScript] = useState(null);
-
   const [visitCount, setVisitCount] = useState(0);
   const [userCount, setUserCount] = useState(0);
+  const mode = useContext(ThemeContext);
+  const themeClass = mode.theme === DARK ? mode.theme : null;
 
   const updateUserCount = () => {
     fetch("https://api.countapi.xyz/update/react-builder/usedby/?amount=1")
@@ -165,7 +166,7 @@ const Settings = () => {
   }, []);
 
   return (
-    <div className="SettingsPane">
+    <div className={`SettingsPane ${themeClass}`}>
       <div className="SettingsHead">
         <div>
           <h1 className="setup-app">
@@ -178,13 +179,13 @@ const Settings = () => {
           </h1>
         </div>
 
-        <div className="Page-analytics">
+        <div className={`Page-analytics ${themeClass}`}>
           <span className="page-visits">
-            <span id="visits">{visitCount}</span> visits
+            <span id="visits">{visitCount}</span> <span>visits</span>
           </span>
           <br />
           <span className="page-visits">
-            <span id="visits">{userCount}</span> users
+            <span id="visits">{userCount}</span> <span>users</span>
           </span>
         </div>
         <div className="Github-repo">
@@ -192,7 +193,7 @@ const Settings = () => {
             <a
               className="github-button"
               href="https://github.com/amanjagdev/react-builder"
-              data-color-scheme="no-preference: dark; light: dark; dark: dark;"
+              data-color-scheme="no-preferences: light;light:light;dark:dark"
               data-size="large"
               data-show-count="true"
               aria-label="Star amanjagdev/react-builder on GitHub"
@@ -204,7 +205,7 @@ const Settings = () => {
             <a
               className="github-button"
               href="https://github.com/amanjagdev/react-builder/fork"
-              data-color-scheme="no-preference: dark; light: dark; dark: dark;"
+              data-color-scheme="no-preferences: light;light:light;dark:dark"
               data-size="large"
               data-show-count="true"
               aria-label="Fork amanjagdev/react-builder on GitHub"
@@ -243,7 +244,7 @@ const Settings = () => {
 
         <div className="projectname">
           <div className="form-container">
-            <div className="main">
+            <div className={`main ${themeClass}`}>
               <h4 className="head">Project Name</h4>
               <p>All small without spaces</p>
             </div>
@@ -257,7 +258,7 @@ const Settings = () => {
 
         <div className="dependencies">
           <div className="form-container">
-            <div className="main">
+            <div className={`main ${themeClass}`}>
               <h4 className="head">Dependencies to be added</h4>
               <p>
                 Seperated by spaces <br /> Do not remove react-router-dom if
@@ -272,7 +273,7 @@ const Settings = () => {
           </div>
         </div>
 
-        <div className="route">
+        <div className={`route ${themeClass}`}>
           <h4 className="head">Routing</h4>
           <p>Done using react-router-dom</p>
           <div className="route-flex">
