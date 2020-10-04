@@ -405,34 +405,23 @@ h1.setup-app {
     grid-template-columns: 1fr !important;
   }
 
-  .Mobile-analytics{
+  .App .SettingsPane {
+    padding: 1em 8%;
+  }
+  .App .SettingsPane .SettingsHead{
+    flex-direction: column !important;
+    
+  }
+  .Mobile-flex{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-weight: bold;
-  }
-  
-  .MobileCard{
-    padding: 20px;
-    width:250px; 
-    font-weight: 600; 
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;  
-    border-radius: 16px;
-    background-color: #fff;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    justify-content: space-between;
+    margin:20px;
   }
 
-  .mobile-dark .MobileCard {
-    background-color: #1c1c1c !important;
-  }
+}
 
-  .mobile-dark{
-    background-color: #111111;
-    color:#fff;
-  }
-
+.Mobile-flex{
+  flex-direction: row;
 }
 
 ::-moz-selection {
