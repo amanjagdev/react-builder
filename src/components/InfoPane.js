@@ -1,18 +1,22 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../App";
-import { LIGHT, DARK } from "../constants/constants";
+import { DARK } from "../constants/constants";
+
 const InfoPane = () => {
   const mode = useContext(ThemeContext);
   const themeClass = mode.theme === DARK ? mode.theme : null;
+
   return (
     <div className={`InfoPane ${themeClass}`}>
       <div className="header">
         <h1>
-          <img src={require("../assets/logo.png")} /> React Builder
+          <img src={require("../assets/logo.png")} alt="React-Builder-Logo" />{" "}
+          React Builder
         </h1>
         <img
           className={`toggleTheme ${themeClass}`}
           src={require("../assets/day-and-night.svg")}
+          alt="Theme-Toggle-Button"
           onClick={mode.toggleTheme}
         ></img>
       </div>

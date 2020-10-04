@@ -54,7 +54,7 @@ h1.setup-app {
 }
 
 .App .InfoPane.dark {
-  background: #0a0a0a;
+  background: #111111;
   color: white;
 }
 
@@ -98,7 +98,7 @@ h1.setup-app {
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
 }
 .App .InfoPane .container-info .box.dark {
-  background: #243784;
+  background: #1c1c1c;
   color: white;
 }
 .App .InfoPane .container-info .box h4 {
@@ -143,7 +143,7 @@ h1.setup-app {
 }
 
 .App .SettingsPane.dark {
-  background: #0a143c;
+  background: #1c1c1c;
   color: white;
 }
 
@@ -157,12 +157,11 @@ h1.setup-app {
 .App .SettingsPane .Page-analytics {
   color: #343a40;
 }
+
 .App .SettingsPane .Page-analytics.dark {
   color: white;
 }
-.App .SettingsPane .Page-analytics.dark > span span:last-child {
-  color: #adb5bd;
-}
+
 .App .SettingsPane .create-app-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -202,7 +201,7 @@ h1.setup-app {
 }
 .App .SettingsPane.dark input,
 .App .SettingsPane.dark select {
-  background: #0a0a0a;
+  background: #1c1c1c;
   color: white;
 }
 

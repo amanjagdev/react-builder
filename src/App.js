@@ -1,24 +1,22 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { createContext } from "react";
 import { RecoilRoot } from "recoil";
-import { getTheme } from "./helpers//themeHelper";
-import { LIGHT, DARK } from "./constants/constants";
+
 //dev
 import RecoilLogger from "recoil-logger";
+import { getTheme } from "./helpers/utility";
 
 //Components
 import Home from "./components/Home";
 
+//Custom Hooks
+import { useTheme } from "./hooks/useTheme";
+
 const savedTheme = getTheme();
+
 export const ThemeContext = createContext(savedTheme);
 
 const App = () => {
-  const [theme, setTheme] = useState(savedTheme);
-  const toggleTheme = () => {
-    const themeToSave = theme === DARK ? LIGHT : DARK;
-    localStorage.setItem("theme", themeToSave);
-    setTheme(themeToSave);
-  };
-
+  const [theme, toggleTheme] = useTheme(savedTheme);
   return (
     <div className="App">
       <ThemeContext.Provider value={{ theme, toggleTheme }}>

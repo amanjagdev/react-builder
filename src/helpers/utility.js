@@ -1,4 +1,4 @@
-const { LIGHT } = require("../constants/constants");
+import { LIGHT } from "../constants/constants";
 
 export const getTheme = () => {
   const savedTheme = localStorage.getItem("theme");

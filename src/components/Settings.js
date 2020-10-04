@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import shortid from "shortid";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { DARK, LIGHT } from "../constants/constants";
+import { DARK } from "../constants/constants";
 import createAppHelper from "../helpers/createAppHelper";
-
 import { ReactComponent as DeleteIcon } from "../assets/trash.svg";
 
 //State
@@ -26,7 +25,6 @@ const Settings = () => {
   const [buildTool, setBuildTool] = useRecoilState(buildToolAtom);
   const [dependencies, setDependencies] = useRecoilState(dependenciesToAddAtom);
   const [script, setScript] = useState(null);
-
   const [visitCount, setVisitCount] = useState(0);
   const [userCount, setUserCount] = useState(0);
   const mode = useContext(ThemeContext);
