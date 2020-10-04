@@ -1,21 +1,32 @@
-import React from 'react';
-import { RecoilRoot } from 'recoil';
+import React, { createContext } from "react";
+import { RecoilRoot } from "recoil";
 
 //dev
-import RecoilLogger from 'recoil-logger'
+import RecoilLogger from "recoil-logger";
+import { getTheme } from "./helpers/utility";
 
-//Compoenents
-import Home from './components/Home'
+//Components
+import Home from "./components/Home";
+
+//Custom Hooks
+import { useTheme } from "./hooks/useTheme";
+
+const savedTheme = getTheme();
+
+export const ThemeContext = createContext(savedTheme);
 
 const App = () => {
+  const [theme, toggleTheme] = useTheme(savedTheme);
   return (
     <div className="App">
-      <RecoilRoot>
-        <RecoilLogger />
-        <Home />
-      </RecoilRoot>
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <RecoilRoot>
+          <RecoilLogger />
+          <Home />
+        </RecoilRoot>
+      </ThemeContext.Provider>
     </div>
-  )
-}
+  );
+};
 
 export default App;

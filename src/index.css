@@ -31,6 +31,32 @@ h1.setup-app {
   padding: 3em;
   background: #9de1ff;
 }
+.App .InfoPane .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.App .InfoPane .toggleTheme {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.App .InfoPane .toggleTheme.dark {
+  transform: rotate(180deg);
+  filter: invert(1);
+  transition: 0.5s;
+}
+
+.App .InfoPane .toggleTheme::after {
+  content: url("./assets/day-and-night.svg");
+}
+
+.App .InfoPane.dark {
+  background: #111111;
+  color: white;
+}
 
 .App .InfoPane h1 {
   font-size: 25px;
@@ -71,7 +97,10 @@ h1.setup-app {
   -webkit-box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
 }
-
+.App .InfoPane .container-info .box.dark {
+  background: #1c1c1c;
+  color: white;
+}
 .App .InfoPane .container-info .box h4 {
   font-weight: 500;
   color: #0d7cbc;
@@ -113,6 +142,11 @@ h1.setup-app {
   margin: 10px;
 }
 
+.App .SettingsPane.dark {
+  background: #1c1c1c;
+  color: white;
+}
+
 .App .SettingsPane .Page-analytics {
   margin-top: 3px;
   font-size: 14px;
@@ -120,8 +154,12 @@ h1.setup-app {
   color: #adb5bd;
 }
 
-.App .SettingsPane #visits {
+.App .SettingsPane .Page-analytics {
   color: #343a40;
+}
+
+.App .SettingsPane .Page-analytics.dark {
+  color: white;
 }
 
 .App .SettingsPane .create-app-container {
@@ -160,6 +198,11 @@ h1.setup-app {
   border-radius: 5px;
   border: 1px solid #46abf5;
   outline: none;
+}
+.App .SettingsPane.dark input,
+.App .SettingsPane.dark select {
+  background: #1c1c1c;
+  color: white;
 }
 
 .App .SettingsPane option {
@@ -219,12 +262,17 @@ h1.setup-app {
   font-size: 0.9rem;
   color: #4e4e4e;
 }
+.App .SettingsPane .form-container .main.dark p {
+  color: #adb5bd;
+}
 
 .App .SettingsPane .route p {
   font-size: 0.9rem;
   color: #4e4e4e;
 }
-
+.App .SettingsPane .route.dark p {
+  color: #adb5bd;
+}
 .App .SettingsPane .route-flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -252,7 +300,6 @@ h1.setup-app {
 .App .SettingsPane .route-flex .enabled .head {
   margin-right: 20px;
 }
-
 .App .SettingsPane .route-flex .navigation {
   display: -webkit-box;
   display: -ms-flexbox;
