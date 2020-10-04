@@ -413,6 +413,10 @@ h1.setup-app {
   background: #eee;
 }
 
+.script.dark {
+  background: #111111;
+}
+
 .mobileInfoPane {
   width: 100vw;
 }

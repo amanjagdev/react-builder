@@ -315,7 +315,7 @@ const Settings = () => {
           </button>
 
           {script && (
-            <div className="script">
+            <div className={`script ${themeClass}`}>
               <code>{script}</code>
             </div>
           )}
