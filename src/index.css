@@ -20,18 +20,26 @@ h1.setup-app {
 
 .App .Home .container {
   height: 100vh;
-  background: #fff;
+  background: #9de1ff;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 2fr;
   grid-template-columns: 1fr 2fr;
 }
 
+.App .Home .container.dark {
+  background: #111111;
+}
+
 .App .InfoPane {
-  padding: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: #9de1ff;
 }
 .App .InfoPane .header {
+  margin-top: 3em;
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,10 +55,6 @@ h1.setup-app {
   transform: rotate(180deg);
   filter: invert(1);
   transition: 0.5s;
-}
-
-.App .InfoPane .toggleTheme::after {
-  content: url("./assets/day-and-night.svg");
 }
 
 .App .InfoPane.dark {
@@ -69,6 +73,7 @@ h1.setup-app {
 }
 
 .App .InfoPane .container-info {
+  width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -116,9 +121,20 @@ h1.setup-app {
 }
 
 .App .InfoPane .madeBy {
+  padding-bottom: 3em;
   text-align: center;
   margin-top: 20px;
   color: #0d7cbc;
+}
+
+.App .InfoPane .githubMetrics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App .InfoPane .githubMetrics > div {
+  margin-top: 1rem;
 }
 
 .App button {
@@ -137,7 +153,9 @@ h1.setup-app {
 
 .App .SettingsPane {
   padding: 3em 8%;
+  background: white;
 }
+
 .App .SettingsPane .Github-repo a {
   margin: 10px;
 }
@@ -147,18 +165,14 @@ h1.setup-app {
   color: white;
 }
 
-.App .SettingsPane .Page-analytics {
+.Page-analytics {
   margin-top: 3px;
   font-size: 14px;
   font-weight: 550;
-  color: #adb5bd;
-}
-
-.App .SettingsPane .Page-analytics {
   color: #343a40;
 }
 
-.App .SettingsPane .Page-analytics.dark {
+.Page-analytics.dark {
   color: white;
 }
 
@@ -242,7 +256,7 @@ h1.setup-app {
   flex-direction: row;
 }
 
-.App .SettingsPane .Github-repo {
+.Github-repo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -254,7 +268,7 @@ h1.setup-app {
   flex-direction: row;
 }
 
-.App .SettingsPane .Github-repo .github-links {
+.Github-repo .github-links {
   margin-right: 10px;
 }
 
@@ -399,10 +413,21 @@ h1.setup-app {
   background: #eee;
 }
 
-@media only screen and (max-width: 1200px) {
-  .container {
-    -ms-grid-columns: 2fr 3fr !important;
-    grid-template-columns: 2fr 3fr !important;
+.script.dark {
+  background: #111111;
+}
+
+.mobileInfoPane {
+  width: 100vw;
+}
+
+@media only screen and (max-width: 768px) {
+  .App .Home .container {
+    display: block;
+    grid-template-columns: none;
+  }
+  .Github-repo {
+    flex-direction: column;
   }
 }
 
