@@ -1,10 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../App";
 import { DARK } from "../constants/constants";
 
 const InfoPane = () => {
   const mode = useContext(ThemeContext);
   const themeClass = mode.theme === DARK ? mode.theme : null;
+
+  const [size, setSize] = useState('');
+
+  useEffect(() => {
+    const handler = () => {
+      setSize(window.innerWidth);
+    }
+    window.addEventListener('resize', handler);
+    handler();
+    return () => window.removeEventListener('resize', handler);
+  }, [size])
 
   return (
     <div className={`InfoPane ${themeClass}`}>
@@ -41,7 +52,7 @@ const InfoPane = () => {
             <li>
               {" "}
               {" 🔹 "} <strong>Step 1</strong> : Choose the desired settings on
-              right pane
+              {size < 768 ? " bottom" : " right"} pane
             </li>
             <li>
               {" "}

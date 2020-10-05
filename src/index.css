@@ -428,9 +428,6 @@ h1.setup-app {
 
 }
 
-.Mobile-flex{
-  flex-direction: row;
-}
 
 ::-moz-selection {
   color: black;
