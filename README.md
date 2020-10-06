@@ -1,7 +1,7 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/amanjagdev/react-builder.svg)](https://github.com/amanjagdev/react-builder/graphs/contributors/)
-[![GitHub stars](https://img.shields.io/github/stars/amanjagdev/react-builder?style=social&label=Star&maxAge=2592000)](https://github.com/amanjagdev/react-builder/stargazers/)
-[![GitHub forks](https://img.shields.io/github/forks/amanjagdev/react-builder?style=social&label=Fork&maxAge=2592000)](https://github.com/amanjagdev/react-builder/network/members/)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![GitHub Stars](https://img.shields.io/github/stars/amanjagdev/react-builder.svg?style=social&logo=github)](https://github.com/amanjagdev/react-builder/stargazers/)
+[![GitHub contributors](https://img.shields.io/github/forks/amanjagdev/react-builder.svg?style=social&logo=github)](https://github.com/amanjagdev/react-builder/network/members/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 <!-- [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/amanjagdev/react-builder/badges/) -->
 
