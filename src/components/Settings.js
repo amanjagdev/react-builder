@@ -43,11 +43,11 @@ const Settings = () => {
     createAppHelper({ environment, route, components, projectName, fileName });
     if (buildTool === "yarn") {
       setScript(
-        `yarn create react-app ${projectName} && cd ${projectName} && yarn add ${dependencies} && cd .. && node ${fileName}.js`
+        `yarn create react-app ${projectName} && cd ${projectName} && yarn add ${dependencies} && cd .. && node ${fileName}.js && rm ${fileName}.js`
       );
     } else {
       setScript(
-        `npx create-react-app ${projectName} && cd ${projectName} && npm install ${dependencies} && cd .. && node ${fileName}.js`
+        `npx create-react-app ${projectName} && cd ${projectName} && npm install ${dependencies} && cd .. && node ${fileName}.js && rm ${fileName}.js`
       );
     }
   };
