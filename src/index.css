@@ -468,4 +468,45 @@ h1.setup-app {
 ::-webkit-scrollbar-thumb:hover {
   background: #46abf5;
 }
-/*# sourceMappingURL=index.css.map */
+
+.InfoPane .container-info .instruction-cards-item {
+  cursor: pointer;
+  padding: 0.7rem;
+  margin: 0.5rem 0;
+  border-radius: 1rem;
+  font-size: 0.9rem;
+}
+
+.InfoPane .container-info .instruction-cards-item:hover {
+  -webkit-box-shadow: 0px 0px 30px -10px #9de1ff;
+          box-shadow: 0px 0px 30px -10px #9de1ff;
+}
+
+.InfoPane .container-info .instruction-cards-item-subheading {
+  color: #0d7cc2;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.InfoPane .container-info .instruction-cards .nopointer {
+  cursor: auto;
+}
+
+.SettingsPane .container-settings {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.SettingsPane .create-app-btn {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.SettingsPane .highlight {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0px 0px 30px -10px #9de1ff;
+          box-shadow: 0px 0px 30px -10px #9de1ff;
+}

@@ -13,6 +13,7 @@ import {
   buildToolAtom,
   dependenciesToAddAtom,
   environmentAtom,
+  highlightAtom,
 } from "../context/GlobalState";
 import { ThemeContext } from "../App";
 import { isMobile } from "../helpers/utility";
@@ -26,6 +27,7 @@ const Settings = () => {
   const [components, setComponents] = useRecoilState(componentsAtom);
   const [buildTool, setBuildTool] = useRecoilState(buildToolAtom);
   const [dependencies, setDependencies] = useRecoilState(dependenciesToAddAtom);
+  const highlight = useRecoilValue(highlightAtom);
   const [script, setScript] = useState(null);
   const [isCreated, setIsCreated] = useState(false);
   const mode = useContext(ThemeContext);
@@ -166,7 +168,7 @@ const Settings = () => {
           </div>
           <GithubMetrics isCreated={isCreated} setIsCreated={setIsCreated} />
         </div>
-        <div className="container-settings">
+        <div className={`container-settings ${highlight === 1 && "highlight"}`}>
           <div className="env">
             <div className="form-container">
               <h4 className="head">Environment</h4>
@@ -308,7 +310,7 @@ const Settings = () => {
         </div>
 
         <div className="create-app-container">
-          <button className="create-app-btn" onClick={() => handleCreateApp()}>
+          <button className={`create-app-btn ${highlight === 2 && "highlight"}`} onClick={() => handleCreateApp()}>
             {" "}
             Create App
           </button>

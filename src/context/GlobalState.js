@@ -43,6 +43,14 @@ export const routeAtom = atom({
   },
 });
 
+export const highlightAtom = atom({
+  key: "highlightAtom",
+  default: 0,
+  persistence_UNSTABLE: {
+    type: "log",
+  },
+});
+
 export const componentsAtom = atom({
   key: "componentsAtom",
   default: [
