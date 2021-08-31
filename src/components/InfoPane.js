@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
+import { useRecoilState } from "recoil";
 import { ThemeContext } from "../App";
 import { DARK } from "../constants/constants";
+import { highlightAtom } from "../context/GlobalState";
 import { isMobile } from "../helpers/utility";
 import { useWindowSize } from "../hooks/useWindowSize";
 import { GithubMetrics } from "./GithubMetrics";
@@ -8,7 +10,14 @@ import { GithubMetrics } from "./GithubMetrics";
 const InfoPane = () => {
   const mode = useContext(ThemeContext);
   const themeClass = mode.theme === DARK ? mode.theme : null;
+  const [,setHighlight] = useRecoilState(highlightAtom);
   const windowSize = useWindowSize();
+  const handleHighlight = (num) => {
+    setHighlight(num);
+    setTimeout(() => {
+      setHighlight(0)
+    }, 1000);
+  }
   return (
     <div className={`InfoPane ${themeClass} ${isMobile && "mobileInfoPane"}`}>
       <div className="header">
@@ -42,28 +51,23 @@ const InfoPane = () => {
           {!isMobile ? (
             <>
               <h4>Instructions</h4>
-              <ul>
-                <li>
-                  {" "}
-                  {" 🔹 "} <strong>Step 1</strong> : Choose the desired settings
+              <div className="instruction-cards">
+                <div className="instruction-cards-item" onClick={() => handleHighlight(1)}>
+                  <div className="instruction-cards-item-subheading">Step 1</div> Choose the desired settings
                   on {windowSize.width <= 768 ? "bottom" : "right"} pane
-                </li>
-                <li>
-                  {" "}
-                  {" 🔹 "} <strong>Step 2</strong> : Once you click create app
-                  it will download a js file and show you a script
-                </li>
-                <li>
-                  {" "}
-                  {" 🔹 "} <strong>Step 3</strong> : Place that js script in the
+                </div>
+                <div className="instruction-cards-item" onClick={() => handleHighlight(2)}>  
+                  <div className="instruction-cards-item-subheading">Step 2</div> When you click the Create App button, a js file and a script will be downloaded and shown.
+                </div>
+                <div className="instruction-cards-item nopointer">
+                  <div className="instruction-cards-item-subheading">Step 3</div>Place that js script in the
                   folder you want to create react app
-                </li>
-                <li>
-                  {" "}
-                  {" 🔹 "} <strong>Step 4</strong> : Run that script in that
+                </div>
+                <div className="instruction-cards-item nopointer">
+                  <div className="instruction-cards-item-subheading">Step 4</div>Run that script in that
                   folder.
-                </li>
-              </ul>
+                </div>
+              </div>
             </>
           ) : (
             <h4>Open this website in a desktop browser to access it.</h4>
