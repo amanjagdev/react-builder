@@ -6,6 +6,8 @@ import { highlightAtom } from "../context/GlobalState";
 import { isMobile } from "../helpers/utility";
 import { useWindowSize } from "../hooks/useWindowSize";
 import { GithubMetrics } from "./GithubMetrics";
+import logoImage from "../assets/logo.png";
+import dayAndNight from "../assets/day-and-night.svg";
 
 const InfoPane = () => {
   const mode = useContext(ThemeContext);
@@ -22,12 +24,12 @@ const InfoPane = () => {
     <div className={`InfoPane ${themeClass} ${isMobile && "mobileInfoPane"}`}>
       <div className="header">
         <h1>
-          <img src={require("../assets/logo.png")} alt="React-Builder-Logo" />{" "}
+          <img src={logoImage} alt="React-Builder-Logo" />{" "}
           React Builder
         </h1>
         <img
           className={`toggleTheme ${themeClass}`}
-          src={require("../assets/day-and-night.svg")}
+          src={dayAndNight}
           alt="Theme-Toggle-Button"
           onClick={mode.toggleTheme}
         ></img>

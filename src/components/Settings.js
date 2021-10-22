@@ -4,6 +4,7 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { DARK } from "../constants/constants";
 import createAppHelper from "../helpers/createAppHelper";
 import { ReactComponent as DeleteIcon } from "../assets/trash.svg";
+import gear from "../assets/gear.png";
 
 //State
 import {
@@ -159,7 +160,7 @@ const Settings = () => {
           <div>
             <h1 className="setup-app">
               <img
-                src={require("../assets/gear.png")}
+                src={gear}
                 className="gearIcon"
                 alt="gear icon"
               />{" "}
